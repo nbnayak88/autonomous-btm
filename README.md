@@ -21,3 +21,9 @@ Read the [Autonomous BTM Gameboard Model](gameboard_model_autonomous_btm.md) for
 | SuperClass | Executive framing and enterprise-level judgement | Autonomous Transformation Strategy SuperClass |
 
 A format is not a curriculum by itself. Select formats based on learner intent, depth, and expected output, and assess each format proportionately.
+
+## Free 7-Day Business Transformation Origin Story Challenge
+
+[TagMango Level Up — The Origin Story: Business Transformation Management](learning/challenges/the-origin-story/btm-7-day-tagmango-level-up.md) includes a welcome post, seven beginner-friendly daily missions and a final celebration. It connects purpose, business and enterprise architecture, capabilities, current/desired states, option choices, adoption, readiness and value through short text submissions. A coach-only appendix links the Origin Story to requirements, testing, go-live decisions and outcomes through traceability.
+
+[Explore the SuccessLabs Academy webinar](https://hub.successlabsacademy.com/web/checkout/694af8798dd872a219700dd3). The challenge is free; further learning is optional.

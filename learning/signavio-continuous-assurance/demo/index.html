@@ -1,29 +1,29 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Continuous Assurance Demo (P2P) – illustrative prototype</title>
 <style>
-:root{--blk:#0B0B0B;--grn:#78B62E;--grn2:#92D337;--pink:#ED547C;--sky:#B9D8F2;--navy:#496592;--light:#EEF6E3;--grey:#5B6770;--amber:#FFF3D6}
+:root{color-scheme:light;--blk:#0B0B0B;--grn:#78B62E;--grn2:#92D337;--pink:#ED547C;--sky:#B9D8F2;--navy:#496592;--light:#EEF6E3;--grey:#5B6770;--amber:#FFF3D6}
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,Segoe UI,Arial,sans-serif;color:var(--blk);background:#fafbfa}
 header{background:var(--blk);color:#fff;padding:10px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 header img{height:36px}header b{color:var(--grn2)}header small{color:#cfd6cc}
 .banner{background:var(--amber);border-bottom:1px solid #E0A526;padding:6px 22px;font-size:12.5px}
 nav{display:flex;gap:6px;flex-wrap:wrap;padding:10px 22px;background:#fff;border-bottom:1px solid #e3e8e0;position:sticky;top:0;z-index:5}
-nav button{border:1px solid #cfd8c8;background:#fff;border-radius:18px;padding:5px 12px;cursor:pointer;font:inherit}
-nav button.on{background:var(--blk);color:var(--grn2);border-color:var(--blk)}nav button small{opacity:.7;margin-left:4px}
+nav button{color:var(--blk);border:1px solid #cfd8c8;background:#fff;border-radius:18px;padding:5px 12px;cursor:pointer;font:inherit}
+nav button.on{background:var(--blk);color:var(--grn2);border-color:var(--blk)}nav button small{color:inherit}nav button small{opacity:.7;margin-left:4px}
 main{max-width:1180px;margin:0 auto;padding:16px 22px 60px}
 h2{margin:6px 0 4px}.sub{color:var(--grey);margin:0 0 12px}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px}.chip{font-size:11.5px;border-radius:12px;padding:2px 9px;border:1px solid #cfd8c8;background:#fff}
 .chip.av{background:var(--light);border-color:var(--grn)}.chip.beta{background:var(--amber);border-color:#E0A526}.chip.proto{background:#e8eef7;border-color:var(--navy)}
 .grid{display:grid;gap:12px}.g3{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
-.card{background:#fff;border:1px solid #dfe6da;border-radius:10px;padding:12px 14px}
+.card{color:var(--blk);background:#fff;border:1px solid #dfe6da;border-radius:10px;padding:12px 14px}
 .kpi{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}.kpi div{background:#fff;border:1px solid #dfe6da;border-radius:10px;padding:8px 14px;min-width:130px}
 .kpi b{font-size:22px;display:block}.kpi span{color:var(--grey);font-size:12px}
-table{border-collapse:collapse;width:100%;font-size:13px}th{background:var(--blk);color:var(--grn2);text-align:left}th,td{border:1px solid #e1e6dd;padding:5px 8px;vertical-align:top}
+table{border-collapse:collapse;width:100%;font-size:13px;color:var(--blk)}td{background:#fff}th{background:var(--blk);color:var(--grn2);text-align:left}th,td{border:1px solid #e1e6dd;padding:5px 8px;vertical-align:top}
 tr.clk{cursor:pointer}tr.clk:hover td{background:var(--light)}tr.sel td{background:#dff0c6}
 .bar{height:10px;background:var(--grn);border-radius:5px;display:inline-block;vertical-align:middle}.bar.p{background:var(--pink)}
 .fit-Strong{background:#d9efc0}.fit-Partial{background:var(--amber)}.fit-Limited{background:#f6d6de}
 .dom{cursor:pointer}.dom.sel{outline:3px solid var(--blk)}
 button.act{background:var(--blk);color:var(--grn2);border:0;border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit}button.act[disabled]{opacity:.4;cursor:default}
-select,input,textarea{font:inherit;padding:5px 7px;border:1px solid #cfd8c8;border-radius:6px}
+select,input,textarea{color:var(--blk);background:#fff;font:inherit;padding:5px 7px;border:1px solid #cfd8c8;border-radius:6px}
 .note{background:var(--amber);border:1px solid #E0A526;border-radius:8px;padding:8px 12px;font-size:12.5px;margin:10px 0}
 .pill{border-radius:10px;padding:1px 8px;font-size:11.5px;background:#eee}.pill.ok{background:#d9efc0}.pill.open{background:#fbe3a6}
 svg text{font-family:system-ui,Arial,sans-serif}.q{margin:4px 4px 0 0}
@@ -146,6 +146,7 @@ const D=build(), T=runTests(D), recs=D.recs, N=recs.length;
 const fmt=n=>n.toLocaleString("en-US"), pct=(a,b)=>(100*a/b).toFixed(1)+"%";
 const STEPS=[
  ["landscape","1 Landscape","intro","Process Intelligence + landscape view","proto"],
+ ["sim","1b Simulate","live flow","Process flow simulation (illustrative)","proto"],
  ["discover","2 Discover","0:00–2:00","Process Intelligence (discovery)","av"],
  ["variants","3 Variants","2:00–4:00","Process Intelligence (variant explorer)","av"],
  ["conf","4 Conformance","4:00–6:00","Process Intelligence + Process Manager target model","av"],
@@ -153,7 +154,7 @@ const STEPS=[
  ["invest","6 Investigate","9:00–12:00","Joule / Consulting Agent (available); AI root cause (beta)","beta"],
  ["act","7 Act","12:00–14:00","Process Governance (workflow)","av"],
  ["rec","8 Recommend","14:00–15:00","Process Intelligence + assistant","av"]];
-let cur="discover", selTest="BRL-04", selDom=null, tasks=[], taskSeq=1;
+let cur="discover",simDom="AU-01", selTest="BRL-04", selDom=null, tasks=[], taskSeq=1;
 const nav=document.getElementById("nav"),main=document.getElementById("main");
 function drawNav(){nav.innerHTML=STEPS.map(s=>`<button class="${s[0]===cur?"on":""}" onclick="go('${s[0]}')">${s[1]}<small>${s[2]}</small></button>`).join("")}
 function go(k){cur=k;drawNav();render();window.scrollTo(0,0)}
@@ -161,7 +162,7 @@ function head(t,sub){const s=STEPS.find(x=>x[0]===cur);const st=s[4]==="av"?"Sta
 // ---------- 1 landscape
 function vLandscape(){
  const cards=DOMAINS.map(d=>{const n=d[0]==='AU-01'?8:TESTS.filter(t=>t[1]===d[1]).length;return `<div class="card dom fit-${d[5]} ${selDom===d[0]?"sel":""}" onclick="selDom='${d[0]}';render()"><b>${d[1]}</b><br><small>${d[2]}</small><br><span class="pill">Fit: ${d[5]}</span> <span class="pill">${d[7]}</span> <span class="pill">${n} ${d[0]==='AU-01'?'live tests (this demo)':'sample tests'}</span></div>`}).join("");
- let det="";if(selDom){const d=DOMAINS.find(x=>x[0]===selDom);det=`<div class="card" style="margin-top:12px"><b>${d[1]}</b>: ${d[3]}<br><small><b>Sources:</b> ${d[4]}<br><b>What differs from P2P:</b> ${d[6]}</small><table style="margin-top:8px"><tr><th>ID</th><th>Control test</th><th>Logic</th><th>Fit</th></tr>${d[0]==='AU-01'?Object.entries(T).map(([id,t])=>`<tr><td>${id}</td><td>${t.name}</td><td>${fmt(t.hits.length)} deviations in this demo</td><td>Strong</td></tr>`).join(""):TESTS.filter(t=>t[1]===d[1]).map(t=>`<tr><td>${t[0]}</td><td>${t[2]}</td><td>${t[3]}</td><td>${t[6]}</td></tr>`).join("")}</table>${d[0]==='AU-01'?'<p><button class="act" onclick="go(\'discover\')">Start the P2P demo</button></p>':''}</div>`}
+ let det="";if(selDom){const d=DOMAINS.find(x=>x[0]===selDom);det=`<div class="card" style="margin-top:12px"><b>${d[1]}</b>: ${d[3]}<br><small><b>Sources:</b> ${d[4]}<br><b>What differs from P2P:</b> ${d[6]}</small><table style="margin-top:8px"><tr><th>ID</th><th>Control test</th><th>Logic</th><th>Fit</th></tr>${d[0]==='AU-01'?Object.entries(T).map(([id,t])=>`<tr><td>${id}</td><td>${t.name}</td><td>${fmt(t.hits.length)} deviations in this demo</td><td>Strong</td></tr>`).join(""):TESTS.filter(t=>t[1]===d[1]).map(t=>`<tr><td>${t[0]}</td><td>${t[2]}</td><td>${t[3]}</td><td>${t[6]}</td></tr>`).join("")}</table><p><button class="act" onclick="simDom='${d[0]}';go('sim')">Simulate this process</button> ${d[0]==='AU-01'?'<button class="act" onclick="go(\'discover\')">Open the full P2P demo</button>':''}</p></div>`}
  return head("Audit landscape","Nine audit domains that reuse the same blueprint. Colour shows how well the process suits process mining; click a domain for its sample tests.")+`<div class="grid g3">${cards}</div>${det}<div class="note">Fit is a design judgement from public product information, not a vendor statement. Today's demo goes deep on the first domain (Procurement, P2P).</div>`}
 // ---------- 2 discover (process map)
 const POS={A:[70,100],B:[230,100],D:[400,100],E:[590,100],I:[860,100],C:[315,240],H:[500,240],F:[690,240],G:[860,240]};
@@ -245,6 +246,112 @@ function vRec(){
  return head("Recommend: where to change the process","Ranked by deviations avoided. Effort is a stated assumption, not computed.")+
  `<div class="card"><table><tr><th>#</th><th>Recommendation</th><th>Why</th><th>Deviations affected</th><th>Effort (assumed)</th><th>What it needs</th></tr>${R2.map((r,i)=>`<tr><td>${i+1}</td><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${fmt(r[2])}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("")}</table></div>
  <div class="note">Suggestions are for people to assess. In the suite, an assistant could draft these; the decision stays with the process owner.</div>`}
-function render(){const v={landscape:vLandscape,discover:vDiscover,variants:vVariants,conf:vConf,tests:vTests,invest:vInvest,act:vAct,rec:vRec}[cur];main.innerHTML=v()}
+
+// ---------- simulate: animated flow for each process
+const FL={
+"AU-01":{main:["Create PO","Approve PO","Goods Receipt","Invoice Receipt","Payment"],ex:[
+ {n:"Invoice first (after-the-fact PO)",f:-1,t:0,p:T["BRL-04"].hits.length/N,test:"BRL-04"},
+ {n:"No approval step",f:0,t:2,p:480/N,test:null},
+ {n:"PO changed after approval",f:1,t:2,p:1560/N,test:"BRL-08",q:T["BRL-08"].hits.length/1560},
+ {n:"Paid without goods receipt",f:1,t:3,p:T["BRL-01"].hits.length/N,test:"BRL-01"},
+ {n:"Invoice blocked and released",f:3,t:4,p:1080/N,test:"BRL-07",q:T["BRL-07"].hits.length/1080},
+ {n:"Invoice reversed, re-entered",f:3,t:4,p:1060/N,test:null}],
+ mt:[{i:1,test:"BRL-03",q:T["BRL-03"].hits.length/N},{i:0,test:"BRL-05",q:T["BRL-05"].hits.length/N},{i:4,test:"BRL-02",q:T["BRL-02"].hits.length/N},{i:4,test:"BRL-06",q:T["BRL-06"].hits.length/N}],data:true},
+"AU-02":{main:["Create journal","Review","Approve","Post","Reconcile","Close period"],ex:[{n:"Self-approved journal",f:0,t:3,p:.02,test:"AT-FI-1"},{n:"Back-dated entry",f:3,t:4,p:.05,test:"AT-FI-2"},{n:"Manual entry, sensitive account",f:1,t:3,p:.04,test:"AT-FI-3"},{n:"Late close task",f:4,t:5,p:.08,test:"AT-FI-4"},{n:"Reversal without original",f:3,t:4,p:.015,test:"AT-FI-5"}]},
+"AU-03":{main:["Create order","Credit check","Deliver","Invoice","Receive cash"],ex:[{n:"Price edited after approval",f:0,t:1,p:.04,test:"AT-OC-4"},{n:"Delivered despite credit block",f:1,t:2,p:.03,test:"AT-OC-1"},{n:"Invoice without delivery",f:1,t:3,p:.02,test:"AT-OC-2"},{n:"Credit note above limit",f:3,t:4,p:.02,test:"AT-OC-3"},{n:"Late cash application",f:3,t:4,p:.1,test:"AT-OC-5"}]},
+"AU-04":{main:["Requisition","Approve","Hire","Pay change","Payroll run","Exit"],ex:[{n:"Hire before approval",f:0,t:2,p:.03,test:"AT-HR-3"},{n:"Pay change, no approval",f:2,t:4,p:.04,test:"AT-HR-2"},{n:"Bank change self-approved",f:2,t:4,p:.01,test:"AT-HR-4"},{n:"Excess overtime",f:3,t:4,p:.05,test:"AT-HR-5"},{n:"Pay after exit",f:4,t:5,p:.02,test:"AT-HR-1"}]},
+"AU-05":{main:["Plan demand","Order material","Produce","Move stock","Deliver"],ex:[{n:"Order rescheduled repeatedly",f:1,t:2,p:.06,test:"AT-SC-5"},{n:"Goods issue without order",f:2,t:3,p:.02,test:"AT-SC-2"},{n:"Stock adjusted, no approval",f:3,t:4,p:.03,test:"AT-SC-1"},{n:"Late delivery",f:3,t:4,p:.12,test:"AT-SC-4"},{n:"Long-idle stock",f:2,t:3,p:.05,test:"AT-SC-3"}]},
+"AU-06":{main:["Capture data","Validate","Approve","Aggregate","Report"],ex:[{n:"No supplier declaration",f:0,t:1,p:.04,test:"AT-ES-2"},{n:"Late submission",f:0,t:1,p:.1,test:"AT-ES-3"},{n:"Metric has no source link",f:1,t:2,p:.05,test:"AT-ES-4"},{n:"Edited after approval",f:2,t:3,p:.03,test:"AT-ES-1"}]},
+"AU-07":{main:["Receive complaint","Triage","Resolve","Contact customer","Close"],ex:[{n:"Service level breached",f:1,t:2,p:.12,test:"AT-CX-1"},{n:"Ticket reopened",f:2,t:3,p:.1,test:"AT-CX-2"},{n:"Refund, no approval",f:2,t:3,p:.03,test:"AT-CX-3"},{n:"Closed without contact",f:2,t:4,p:.04,test:"AT-CX-4"}]},
+"AU-08":{main:["Request","Approve change","Test","Release","Review access","Close"],ex:[{n:"Released before approval",f:0,t:3,p:.02,test:"AT-IT-1"},{n:"Emergency change",f:1,t:3,p:.08,test:"AT-IT-3"},{n:"Incident over target",f:3,t:4,p:.1,test:"AT-IT-4"},{n:"Privileged access unreviewed",f:3,t:5,p:.04,test:"AT-IT-5"},{n:"Access kept after exit",f:4,t:5,p:.03,test:"AT-IT-2"}]},
+"AU-09":{main:["Request change","Review","Approve","Update record","Use in transactions"],ex:[{n:"Unreviewed sensitive change",f:0,t:2,p:.04,test:"AT-MD-4"},{n:"Duplicate record created",f:2,t:3,p:.03,test:"AT-MD-2"},{n:"Created and used by one user",f:3,t:4,p:.02,test:"AT-MD-3"},{n:"Bank change, then payment",f:3,t:4,p:.02,test:"AT-MD-1"}]}};
+let SIM=null;
+function simLayout(id){
+ const F=FL[id],n=F.main.length,xs=F.main.map((_,i)=>90+i*(820/(n-1))),y0=70;
+ const rows=[[],[],[]];const ex=F.ex.map((e,k)=>{const xa=e.f<0?xs[0]:xs[e.f],xb=xs[e.t],x=e.f<0?xs[0]-5:(xa+xb)/2;let r=0;while(rows[r].some(z=>Math.abs(z-x)<170))r++;if(r>2)r=2;rows[r].push(x);return {...e,k,x,y:185+r*68}});
+ return {F,xs,y0,ex,n};
+}
+function testName(t){if(!t)return "Non-conforming path (no test)";if(T[t])return t+" "+T[t].name;const r=TESTS.find(x=>x[0]===t);return t+" "+(r?r[2]:"")}
+function vSim(){
+ const opts=DOMAINS.map(d=>`<option value="${d[0]}" ${d[0]===simDom?"selected":""}>${d[1]}</option>`).join("");
+ const L=simLayout(simDom),d=DOMAINS.find(x=>x[0]===simDom);
+ setTimeout(()=>simInit(simDom),0);
+ const rows=[...L.ex.map(e=>({id:"x"+e.k,name:e.n,test:e.test})),...(L.F.mt||[]).map((m,k)=>({id:"m"+k,name:"At "+L.F.main[m.i],test:m.test}))];
+ return head("Simulate the process flow","Cases enter the process one by one and travel along the normal path (green). A case that takes an exception path turns pink; where a control test fires, it is counted. Pick any audit domain.")+
+ `<p>Process: <select onchange="simDom=this.value;render()">${opts}</select> <button class="act" id="bp" onclick="simPause()">Pause</button> <button class="act" onclick="simReset()">Reset</button> Speed <select id="sp" onchange="SIM.speed=+this.value"><option value="1">1×</option><option value="2">2×</option><option value="5" selected>5×</option><option value="12">12×</option></select> <button class="act" onclick="simBulk()">Run ${d[0]==="AU-01"?"all 12,000":"10,000"} cases now</button></p>
+ <div class="kpi"><div><b id="k1">0</b><span>cases started</span></div><div><b id="k2">0</b><span>completed</span></div><div><b id="k3">0</b><span>flagged by a test</span></div><div><b id="k4">0%</b><span>flag rate</span></div></div>
+ <div class="card"><div id="simsvg"></div><small>${d[0]==="AU-01"?"Exception rates come from the synthetic P2P data above (so they match the other tabs).":"<b>Assumed rates for illustration only.</b> They are not measurements and will differ in any real organisation."}</small></div>
+ <div class="card" style="margin-top:12px"><table><tr><th>Exception or checkpoint</th><th>Control test</th><th>Cases</th><th>Flagged</th></tr>${rows.map(r=>`<tr><td>${r.name}</td><td><small>${testName(r.test)}</small></td><td id="c_${r.id}">0</td><td id="f_${r.id}">0</td></tr>`).join("")}</table></div>`}
+function simInit(id){
+ if(SIM&&SIM.timer)clearInterval(SIM.timer);
+ const L=simLayout(id),W=120,H=40;
+ let s=`<svg viewBox="0 0 1000 ${185+3*68}" width="100%"><defs><marker id="sa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,1L10,5L0,9z" fill="#496592"/></marker></defs>`;
+ for(let i=0;i<L.n-1;i++)s+=`<line x1="${L.xs[i]+W/2}" y1="${L.y0}" x2="${L.xs[i+1]-W/2}" y2="${L.y0}" stroke="#496592" stroke-width="3" marker-end="url(#sa)"/>`;
+ s+=`<line x1="20" y1="${L.y0}" x2="${L.xs[0]-W/2}" y2="${L.y0}" stroke="#496592" stroke-width="3" marker-end="url(#sa)"/><text x="14" y="${L.y0-34}" font-size="11" fill="#5B6770">cases enter</text>`;
+ L.ex.forEach(e=>{const a=e.f<0?[20,L.y0]:[L.xs[e.f],L.y0],b=[L.xs[e.t],L.y0];s+=`<path d="M${a[0]},${a[1]+(e.f<0?0:H/2)} L${e.x-60},${e.y} M${e.x+60},${e.y} L${b[0]},${b[1]+H/2}" stroke="#ED547C" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#sa)"/>`});
+ L.F.main.forEach((m,i)=>{s+=`<rect x="${L.xs[i]-W/2}" y="${L.y0-H/2}" width="${W}" height="${H}" rx="9" fill="#eef6e3" stroke="#78B62E" stroke-width="1.6"/><text x="${L.xs[i]}" y="${L.y0+4}" text-anchor="middle" font-size="12" font-weight="600">${m}</text>`});
+ L.ex.forEach(e=>{s+=`<rect id="xr${e.k}" x="${e.x-75}" y="${e.y-24}" width="150" height="48" rx="9" fill="#fff3d6" stroke="#E0A526" stroke-width="1.6"/><text x="${e.x}" y="${e.y-6}" text-anchor="middle" font-size="11" font-weight="600">${e.n.length>26?e.n.slice(0,25)+"…":e.n}</text><text id="xt${e.k}" x="${e.x}" y="${e.y+12}" text-anchor="middle" font-size="10.5" fill="#5B6770">0 cases · 0 flagged</text>`});
+ s+=`<g id="tok"></g></svg>`;
+ document.getElementById("simsvg").innerHTML=s;
+ SIM={id,L,speed:+document.getElementById("sp").value,toks:[],started:0,done:0,flag:0,cnt:{},fl:{},acc:0,paused:false,last:performance.now()};
+ L.ex.forEach(e=>{SIM.cnt["x"+e.k]=0;SIM.fl["x"+e.k]=0});(L.F.mt||[]).forEach((m,k)=>{SIM.cnt["m"+k]=0;SIM.fl["m"+k]=0});
+ SIM.timer=setInterval(simTick,40);
+}
+function simPath(){
+ const L=SIM.L,F=L.F;let pts=[],marks=[],excs=[],i=0,pink=false;
+ pts.push([20,L.y0]);
+ const first=L.ex.find(e=>e.f<0&&R()<e.p);
+ if(first){pts.push([first.x,first.y]);marks.push({at:pts.length-1,k:first.k});}
+ for(;i<L.n;){
+  pts.push([L.xs[i],L.y0]);
+  (F.mt||[]).forEach((m,k)=>{if(m.i===i)marks.push({at:pts.length-1,mt:k,q:m.q})});
+  let go=null,r=R(),acc=0;
+  for(const e of L.ex){if(e.f===i&&e.f>=0){acc+=e.p;if(r<acc){go=e;break}}}
+  if(go){pts.push([go.x,go.y]);marks.push({at:pts.length-1,k:go.k});i=go.t}else i++;
+ }
+ return {pts,marks};
+}
+function simSpawn(){
+ const P=simPath(),svg=document.getElementById("tok");if(!svg)return;
+ const c=document.createElementNS("http://www.w3.org/2000/svg","circle");c.setAttribute("r",4.5);c.setAttribute("opacity",".85");c.setAttribute("fill","#78B62E");c.setAttribute("stroke","#0B0B0B");c.setAttribute("stroke-width","1");svg.appendChild(c);
+ SIM.toks.push({c,pts:P.pts,marks:P.marks,seg:0,t:0,hit:false});SIM.started++;
+}
+function simMark(tk,m){
+ if(m.k!==undefined){const e=SIM.L.ex[m.k];SIM.cnt["x"+m.k]++;tk.c.setAttribute("fill","#ED547C");
+  const fire=e.test&&R()<(e.q===undefined?1:e.q);if(fire){SIM.fl["x"+m.k]++;if(!tk.hit){tk.hit=true;SIM.flag++}}}
+ else{SIM.cnt["m"+m.mt]++;if(R()<m.q){SIM.fl["m"+m.mt]++;tk.c.setAttribute("fill","#ED547C");if(!tk.hit){tk.hit=true;SIM.flag++}}}
+}
+function simTick(){
+ if(!SIM||!document.getElementById("tok")){if(SIM&&SIM.timer)clearInterval(SIM.timer);return}
+ const now=performance.now(),dt=Math.min(.2,(now-SIM.last)/1000);SIM.last=now;if(SIM.paused)return;
+ SIM.acc+=dt*SIM.speed*3;while(SIM.acc>=1&&SIM.toks.length<140){SIM.acc-=1;simSpawn()}if(SIM.acc>3)SIM.acc=0;
+ const keep=[];
+ for(const tk of SIM.toks){
+  const a=tk.pts[tk.seg],b=tk.pts[tk.seg+1];
+  if(!b){tk.c.remove();SIM.done++;continue}
+  const len=Math.hypot(b[0]-a[0],b[1]-a[1])||1;tk.t+=dt*SIM.speed*170/len;
+  if(tk.t>=1){tk.seg++;tk.t=0;tk.marks.filter(m=>m.at===tk.seg).forEach(m=>simMark(tk,m));
+   tk.c.setAttribute("cx",b[0]);tk.c.setAttribute("cy",b[1]);}
+  else{tk.c.setAttribute("cx",a[0]+(b[0]-a[0])*tk.t);tk.c.setAttribute("cy",a[1]+(b[1]-a[1])*tk.t)}
+  keep.push(tk);
+ }
+ SIM.toks=keep;simShow();
+}
+function simShow(){
+ const g=id=>document.getElementById(id);if(!g("k1"))return;
+ g("k1").textContent=fmt(SIM.started);g("k2").textContent=fmt(SIM.done);g("k3").textContent=fmt(SIM.flag);g("k4").textContent=SIM.started?(100*SIM.flag/SIM.started).toFixed(1)+"%":"0%";
+ Object.keys(SIM.cnt).forEach(k=>{const a=g("c_"+k),b=g("f_"+k);if(a)a.textContent=fmt(SIM.cnt[k]);if(b)b.textContent=fmt(SIM.fl[k]);if(k[0]==="x"){const t=g("xt"+k.slice(1));if(t)t.textContent=fmt(SIM.cnt[k])+" cases · "+fmt(SIM.fl[k])+" flagged"}});
+}
+function simPause(){SIM.paused=!SIM.paused;document.getElementById("bp").textContent=SIM.paused?"Resume":"Pause";SIM.last=performance.now()}
+function simReset(){SIM.toks.forEach(t=>t.c.remove());SIM.toks=[];SIM.started=SIM.done=SIM.flag=0;Object.keys(SIM.cnt).forEach(k=>{SIM.cnt[k]=0;SIM.fl[k]=0});simShow()}
+function simBulk(){
+ const L=SIM.L;simReset();const n=SIM.id==="AU-01"?N:10000;
+ if(SIM.id==="AU-01"){SIM.started=SIM.done=N;L.ex.forEach(e=>{const c=Math.round(e.p*N);SIM.cnt["x"+e.k]=c;SIM.fl["x"+e.k]=e.test?Math.round(c*(e.q===undefined?1:e.q)):0});(L.F.mt||[]).forEach((m,k)=>{SIM.cnt["m"+k]=N;SIM.fl["m"+k]=Math.round(N*m.q)});
+  SIM.flag=new Set(Object.values(T).flatMap(t=>t.hits)).size;}
+ else{SIM.started=SIM.done=n;for(let c=0;c<n;c++){let hit=false,i=0;while(i<L.n){let go=null,r=R(),acc=0;for(const e of L.ex){if(e.f===i){acc+=e.p;if(r<acc){go=e;break}}}if(go){SIM.cnt["x"+go.k]++;if(go.test){SIM.fl["x"+go.k]++;hit=true}i=go.t}else i++}if(hit)SIM.flag++}}
+ simShow();
+}
+
+function render(){const v={landscape:vLandscape,sim:vSim,discover:vDiscover,variants:vVariants,conf:vConf,tests:vTests,invest:vInvest,act:vAct,rec:vRec}[cur];main.innerHTML=v()}
 drawNav();render();
 </script></body></html>

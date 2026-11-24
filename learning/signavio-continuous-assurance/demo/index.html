@@ -451,6 +451,42 @@ function vRec(){
  `<div class="card"><table><tr><th>#</th><th>Recommendation</th><th>Addresses</th><th>Deviations affected</th><th>Effort (assumed)</th><th>What it needs</th></tr>${rows.map((r,i)=>`<tr><td>${i+1}</td><td><b>${r.rec}</b></td><td><small>${r.id}: ${r.why}</small></td><td>${fmt(r.n)}</td><td>${r.eff}</td><td>${NEED[r.eff]||""}</td></tr>`).join("")}</table></div>
  <div class="note">Suggestions are for people to assess. In the suite, an assistant could draft these; the decision stays with the process owner.</div>`}
 
+
+// ---------- multilayer architecture shown during simulation
+const BADGE={"Available":"#d9efc0","Available (configuration)":"#d9efc0","Available (allowance)":"#d9efc0","Beta":"#FFF3D6","Roadmap, no commitment":"#f6d6de","Design choice":"#e8eef7","Existing system":"#eee","Optional, separate product":"#e8eef7","Optional platform":"#e8eef7"};
+function archDef(C){return [
+ {t:"1 Source systems",c:"#eee",items:[{k:"src",n:"SAP source systems",s:"Existing system",d:C.row[4]}]},
+ {t:"2 Extract and mask",c:"#e8eef7",items:[{k:"ext",n:"Read-only extract and masking",s:"Design choice",d:"Thin extract; personal data masked before load. Options: customer-hosted job, SAP Integration Suite or Datasphere."}]},
+ {t:"3 SAP Signavio Process Intelligence",c:"#d9efc0",items:[
+  {k:"etl",n:"Data pipeline and event log",s:"Available",d:"Turns source tables into an object-centric event log."},
+  {k:"disc",n:"Discovery and variants",s:"Available",d:"Draws the process map and counts every path."},
+  {k:"tst",n:"Control tests",s:"Available (configuration)",d:"Runs each rule on every case; thresholds are parameters."}]},
+ {t:"4 SAP Signavio Process Manager and Governance",c:"#d9efc0",items:[
+  {k:"pm",n:"Process Manager: target model",s:"Available",d:"Approved paths used to judge conformance."},
+  {k:"pg",n:"Process Governance: workflow",s:"Available",d:"Each flagged case becomes a task; closing needs a cause."}]},
+ {t:"5 AI and assistants",c:"#FFF3D6",items:[
+  {k:"joule",n:"Joule / Process Consulting Agent",s:"Available (allowance)",d:"Answers questions in plain language on the process data."},
+  {k:"rca",n:"AI root-cause analysis",s:"Beta",d:"Suggests where deviations concentrate; a person confirms."},
+  {k:"agent",n:"Agentic risk mining",s:"Roadmap, no commitment",d:"Outside the core path."}]},
+ {t:"6 Publish and operate",c:"#e8eef7",items:[
+  {k:"hub",n:"Collaboration Hub",s:"Available",d:"Auditors and process owners read the results."},
+  {k:"bpa",n:"SAP Build Process Automation",s:"Optional, separate product",d:"Automates remediation only after approval."},
+  {k:"btp",n:"SAP BTP: identity and hosting",s:"Optional platform",d:"Single sign-on, roles and hosting region."}]}]}
+function archHtml(C){
+ return `<div class="card" style="margin-top:12px"><b>Architecture in action: which component does what</b><br><small>Each box lights up and its counter moves as cases flow through the replay above. Status labels follow public SAP material at the time of writing; confirm with SAP.</small><div style="margin-top:8px">${archDef(C).map(L=>`<div style="display:flex;gap:8px;margin:6px 0;align-items:stretch"><div style="flex:0 0 150px;background:${L.c};border:1px solid #cfd8c8;border-radius:8px;padding:6px 8px;font-weight:600;font-size:12px">${L.t}</div><div style="flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px">${L.items.map(i=>`<div id="a_${i.k}" style="background:#fff;border:1px solid #cfd8c8;border-radius:8px;padding:6px 9px;transition:background .3s,box-shadow .3s"><b style="font-size:12.5px">${i.n}</b> <span class="pill" style="background:${BADGE[i.s]||"#eee"};font-size:10.5px">${i.s}</span><br><small>${i.d}</small><div id="al_${i.k}" style="font-size:12px;font-weight:600;margin-top:3px;color:#2f5d0a">waiting</div></div>`).join("")}</div></div>`).join("")}</div></div>`}
+function archDriver(C){
+ if(C._drv)return C._drv;const top=Object.entries(C.T).sort((a,b)=>b[1].hits.length-a[1].hits.length)[0],D=dimsOf(C);
+ const L=Object.entries(D).map(([n,f])=>({n,x:lift(C.recs,top[1].hits,f)[0]})).sort((a,b)=>b.x.lift-a.x.lift)[0];
+ return C._drv=`${top[1].name.toLowerCase()}: ${L.n} = ${L.x.key} (×${L.x.lift.toFixed(1)})`;
+}
+function archUpdate(){
+ const C=SIM.C,g=id=>document.getElementById(id);if(!g("al_src"))return;
+ const ev=Object.values(SIM.cnt).reduce((a,b)=>a+b,0),fired=Object.values(SIM.fl).reduce((a,b)=>a+b,0),S=SIM.started;
+ const v={src:S?fmt(ev)+" events read":"waiting",ext:S?fmt(S)+" records masked":"waiting",etl:SIM.done?fmt(SIM.done)+" cases in the event log":"waiting",disc:SIM.vs.size?SIM.vs.size+" of "+C.variants.length+" paths seen":"waiting",
+  tst:SIM.done?fmt(SIM.done*Object.keys(C.T).length)+" checks run, "+fmt(fired)+" fired":"waiting",pm:SIM.done?pct(SIM.conf,SIM.done)+" conform to target":"waiting",pg:SIM.flag?fmt(SIM.flag)+" tasks raised":"waiting",
+  joule:S?"ready for questions (see Investigate)":"waiting",rca:SIM.flag>=15?"suggests "+archDriver(C):"needs about 15 flagged cases",agent:"not used in this demo",hub:SIM.done?"live view: "+pct(SIM.flag,SIM.done)+" flagged":"waiting",bpa:"off: remediation stays manual",btp:S?"roles and region checked":"waiting"};
+ Object.keys(v).forEach(k=>{const e=g("al_"+k);if(e&&e.textContent!==v[k]){e.textContent=v[k];const b=g("a_"+k);if(b&&v[k]!=="waiting"&&k!=="agent"&&k!=="bpa"){b.style.background="#EEF6E3";b.style.boxShadow="0 0 0 2px #78B62E";clearTimeout(b._t);b._t=setTimeout(()=>{b.style.background="#fff";b.style.boxShadow="none"},450)}}});
+}
 // ---------- simulate: replay real records over the discovered map
 let SIM=null;
 function vSim(){
@@ -461,7 +497,7 @@ function vSim(){
  `<p><button class="act" id="bp" onclick="simPause()">Pause</button> <button class="act" onclick="simReset()">Reset</button> Speed <select id="sp" onchange="SIM.speed=+this.value"><option value="1">1×</option><option value="2">2×</option><option value="5" selected>5×</option><option value="12">12×</option></select> <button class="act" onclick="simBulk()">Replay all ${fmt(C.N)} now</button></p>
  <div class="kpi"><div><b id="k1">0</b><span>cases started</span></div><div><b id="k2">0</b><span>completed</span></div><div><b id="k3">0</b><span>flagged by a test</span></div><div><b id="k4">0%</b><span>flag rate (full log: ${pct(new Set(Object.values(C.T).flatMap(t=>t.hits)).size,C.N)})</span></div></div>
  <div class="card"><div id="simsvg"></div><small>Boxes show how many replayed cases have passed through them. ${dom==="AU-01"?"":"<b>Deviation rates in this process are invented for illustration.</b> They are not measurements."}</small></div>
- <div class="card" style="margin-top:12px"><table><tr><th>ID</th><th>Control test</th><th>Fired (live)</th><th>Share of started</th><th>Share in full log</th></tr>${rows}</table></div>`}
+ <div class="card" style="margin-top:12px"><table><tr><th>ID</th><th>Control test</th><th>Fired (live)</th><th>Share of started</th><th>Share in full log</th></tr>${rows}</table></div>`+archHtml(C)}
 function simInit(){
  const C=ctx(dom),L=C.geo;if(!document.getElementById("simsvg"))return;
  if(SIM&&SIM.timer)clearInterval(SIM.timer);
@@ -471,7 +507,7 @@ function simInit(){
  s+=`<text x="12" y="${L.MY-30}" font-size="10.5" fill="#5B6770">cases enter</text><line x1="14" y1="${L.MY}" x2="${L.pos[L.mainC[0]][0]-L.W/2-2}" y2="${L.MY}" stroke="#B7C2B0" stroke-width="2" marker-end="url(#arg)"/><g id="tok"></g></svg>`;
  document.getElementById("simsvg").innerHTML=s;
  const cnt={},fl={};Object.keys(C.T).forEach(k=>fl[k]=0);Object.keys(L.pos).forEach(k=>cnt[k]=0);
- SIM={C,speed:+document.getElementById("sp").value,toks:[],started:0,done:0,flag:0,fl,cnt,acc:0,paused:false,last:performance.now()};
+ SIM={C,vs:new Set(),conf:0,speed:+document.getElementById("sp").value,toks:[],started:0,done:0,flag:0,fl,cnt,acc:0,paused:false,last:performance.now()};
  SIM.timer=setInterval(simTick,40);
 }
 function simPath(r){
@@ -499,7 +535,7 @@ function simTick(){
  for(const tk of SIM.toks){
   const P=tk.P;tk.d+=dt*SIM.speed*170;
   while(tk.mi<P.marks.length&&P.marks[tk.mi].d<=tk.d){const c=P.marks[tk.mi].c;SIM.cnt[c]++;if(L.off.includes(c))tk.c.setAttribute("fill","#ED547C");tk.mi++}
-  if(tk.d>=P.total){tk.c.remove();SIM.done++;if(tk.r.hits.length){SIM.flag++;tk.r.hits.forEach(h=>SIM.fl[h]++)}continue}
+  if(tk.d>=P.total){tk.c.remove();SIM.done++;SIM.vs.add(tk.r.variant);if(vOf(SIM.C,tk.r.variant).conf)SIM.conf++;if(tk.r.hits.length){SIM.flag++;tk.r.hits.forEach(h=>SIM.fl[h]++)}continue}
   while(P.cum[tk.seg+1]<tk.d)tk.seg++;
   const a=P.pts[tk.seg],b=P.pts[tk.seg+1],len=(P.cum[tk.seg+1]-P.cum[tk.seg])||1,t=(tk.d-P.cum[tk.seg])/len;
   tk.c.setAttribute("cx",a[0]+(b[0]-a[0])*t);tk.c.setAttribute("cy",a[1]+(b[1]-a[1])*t);
@@ -512,14 +548,14 @@ function simShow(){
  const g=id=>document.getElementById(id);if(!g("k1"))return;
  g("k1").textContent=fmt(SIM.started);g("k2").textContent=fmt(SIM.done);g("k3").textContent=fmt(SIM.flag);g("k4").textContent=SIM.done?(100*SIM.flag/SIM.done).toFixed(1)+"%":"0%";
  Object.keys(SIM.cnt).forEach(k=>{const e=g("nv_"+k);if(e)e.textContent=fmt(SIM.cnt[k])+" visits"});
- Object.keys(SIM.fl).forEach(k=>{const a=g("c_"+k),b=g("p_"+k);if(a)a.textContent=fmt(SIM.fl[k]);if(b)b.textContent=SIM.done?pct(SIM.fl[k],SIM.done):"0%"});
+ archUpdate();Object.keys(SIM.fl).forEach(k=>{const a=g("c_"+k),b=g("p_"+k);if(a)a.textContent=fmt(SIM.fl[k]);if(b)b.textContent=SIM.done?pct(SIM.fl[k],SIM.done):"0%"});
 }
 function simPause(){SIM.paused=!SIM.paused;document.getElementById("bp").textContent=SIM.paused?"Resume":"Pause";SIM.last=performance.now()}
-function simReset(){SIM.toks.forEach(t=>t.c.remove());SIM.toks=[];SIM.started=SIM.done=SIM.flag=0;Object.keys(SIM.cnt).forEach(k=>SIM.cnt[k]=0);Object.keys(SIM.fl).forEach(k=>SIM.fl[k]=0);simShow()}
+function simReset(){SIM.toks.forEach(t=>t.c.remove());SIM.toks=[];SIM.vs=new Set();SIM.conf=0;SIM.started=SIM.done=SIM.flag=0;Object.keys(SIM.cnt).forEach(k=>SIM.cnt[k]=0);Object.keys(SIM.fl).forEach(k=>SIM.fl[k]=0);simShow()}
 function simBulk(){
  simReset();const C=SIM.C;SIM.started=SIM.done=C.N;
- C.recs.forEach(r=>{r.ev.forEach(([c])=>SIM.cnt[c]++);if(r.hits.length){SIM.flag++;r.hits.forEach(h=>SIM.fl[h]++)}});
- simShow();
+ C.recs.forEach(r=>{SIM.vs.add(r.variant);if(vOf(C,r.variant).conf)SIM.conf++;r.ev.forEach(([c])=>SIM.cnt[c]++);if(r.hits.length){SIM.flag++;r.hits.forEach(h=>SIM.fl[h]++)}});
+ SIM.paused=true;document.getElementById("bp").textContent="Resume";simShow();
 }
 
 function render(){const v={story:vStory,landscape:vLandscape,sim:vSim,discover:vDiscover,variants:vVariants,conf:vConf,tests:vTests,invest:vInvest,act:vAct,rec:vRec}[cur];main.innerHTML=v()}

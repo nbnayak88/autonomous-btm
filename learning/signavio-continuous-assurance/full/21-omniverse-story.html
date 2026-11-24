@@ -96,6 +96,17 @@ figure{margin:20px 0;text-align:center}figure img{max-width:100%;border:1px soli
 <li><a href="#act-5-first-full-run-procure-to-pay">Act 5. First full run (Procure-to-Pay)</a></li>
 <li><a href="#act-6-one-blueprint-nine-audits">Act 6. One blueprint, nine audits</a></li>
 <li><a href="#act-7-what-changed-for-the-people">Act 7. What changed for the people</a></li>
+<li><a href="#the-story-for-each-process">The story for each process</a><ul>
+<li><a href="#finance-record-to-report">Finance (record-to-report)</a></li>
+<li><a href="#revenue-order-to-cash">Revenue (order-to-cash)</a></li>
+<li><a href="#hr-hire-to-retire">HR (hire-to-retire)</a></li>
+<li><a href="#supply-chain-plan-to-deliver">Supply chain (plan-to-deliver)</a></li>
+<li><a href="#esg-and-sustainability">ESG and sustainability</a></li>
+<li><a href="#customer-experience-cx">Customer experience (CX)</a></li>
+<li><a href="#it-service-and-access">IT (service and access)</a></li>
+<li><a href="#master-data">Master data</a></li>
+</ul>
+</li>
 <li><a href="#sample-based-audit-and-continuous-control-audit-side-by-side">Sample-based audit and continuous control audit side by side</a></li>
 <li><a href="#which-component-does-what-layered-view">Which component does what (layered view)</a></li>
 <li><a href="#try-it">Try it</a></li>
@@ -188,6 +199,304 @@ figure{margin:20px 0;text-align:center}figure img{max-width:100%;border:1px soli
 </table>
 <h2 id="act-7-what-changed-for-the-people">Act 7. What changed for the people</h2>
 <p>The auditors stopped collecting evidence and started judging causes. Process owners saw deviations within days, not months. The audit committee got a live view instead of a yearly report. The decisions stayed with people.</p>
+<h2 id="the-story-for-each-process">The story for each process</h2>
+<p>The same company, a different process each time. Each story has its own sample, its own wake-up call and its own numbers (synthetic).</p>
+<h3 id="finance-record-to-report">Finance (record-to-report)</h3>
+<p><strong>The old way.</strong> At year end the team sampled 60 journal entries out of 6,000 (1%) and reviewed the close checklist once. Findings arrived after the books were closed, so nothing could be fixed in the period.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 journal entries contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 journal entries</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Journal posted by its approver</td>
+<td>18</td>
+<td>16%</td>
+</tr>
+<tr>
+<td>Unusual manual journal to sensitive account</td>
+<td>55</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>Back-dated or period-end journal</td>
+<td>80</td>
+<td>55%</td>
+</tr>
+<tr>
+<td>Reversal without original</td>
+<td>130</td>
+<td>73%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> The external auditor found a large journal posted days after period close, approved by the person who posted it. Internal audit had missed it: posting dates and approvers sat in different reports and nobody had joined them.</p>
+<p><strong>The shift.</strong> Every journal is read as a sequence of events: create, review, approve, post, reconcile, close. Five rules run on all journals each night, so a late or self-approved entry is flagged the same week. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 journal entries tested. Only 76% followed an approved path. 642 (10.7%) failed at least one test, most often: 360 late close task; 130 reversal without original; 80 back-dated or period-end journal. First action: Block close until reconciliation is complete.</p>
+<h3 id="revenue-order-to-cash">Revenue (order-to-cash)</h3>
+<p><strong>The old way.</strong> The team sampled 60 invoices out of 6,000 (1%), matched them to deliveries, and read credit blocks from a monthly exception report. Orders that skipped a step rarely landed in the sample.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 sales orders contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 sales orders</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Credit note above limit</td>
+<td>95</td>
+<td>62%</td>
+</tr>
+<tr>
+<td>Price change before billing</td>
+<td>150</td>
+<td>78%</td>
+</tr>
+<tr>
+<td>Delivery despite credit block</td>
+<td>180</td>
+<td>84%</td>
+</tr>
+<tr>
+<td>Invoice without delivery</td>
+<td>180</td>
+<td>84%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> A large customer on credit block received a delivery. Sales said the block was released by phone, but no release event existed. Finance learned about it only when the invoice went unpaid.</p>
+<p><strong>The shift.</strong> Order, credit check, delivery, invoice and cash are read from the event log. Rules catch delivery despite a block, billing without delivery and credit notes above limit on every order. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 sales orders tested. Only 84% followed an approved path. 802 (13.4%) failed at least one test, most often: 200 late cash application; 180 delivery despite credit block; 180 invoice without delivery. First action: Dunning and cash-application target by segment.</p>
+<h3 id="hr-hire-to-retire">HR (hire-to-retire)</h3>
+<p><strong>The old way.</strong> Payroll was tested for a sample of 60 employees out of 6,000 (1%) and leavers were reconciled once a year. A pay error could run for months before anyone looked.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 employee records contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 employee records</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Same person creates and approves a bank change</td>
+<td>14</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>Pay after exit</td>
+<td>120</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>Excess overtime pattern</td>
+<td>150</td>
+<td>78%</td>
+</tr>
+<tr>
+<td>Hire before approval</td>
+<td>180</td>
+<td>84%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> Payroll paid a former employee for two months. The exit was recorded in one system and the payroll run read another. The yearly reconciliation would have found it, ten months later.</p>
+<p><strong>The shift.</strong> Requisition, approval, hire, pay change, payroll run and exit are read as one flow. Rules flag pay after exit, pay changes with no approval and hire before approval, on every record. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 employee records tested. Only 87% followed an approved path. 764 (12.7%) failed at least one test, most often: 300 pay change without approval; 180 hire before approval; 150 excess overtime pattern. First action: Make pay-change approval mandatory in the workflow.</p>
+<h3 id="supply-chain-plan-to-deliver">Supply chain (plan-to-deliver)</h3>
+<p><strong>The old way.</strong> The team observed stock counts and sampled 60 stock adjustments out of 6,000 (1%). Adjustments between counts were never systematically checked.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 supply orders contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 supply orders</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stock adjustment without approval</td>
+<td>90</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>Long-idle stock</td>
+<td>130</td>
+<td>73%</td>
+</tr>
+<tr>
+<td>Goods issue without order</td>
+<td>240</td>
+<td>91%</td>
+</tr>
+<tr>
+<td>Frequent order rescheduling</td>
+<td>360</td>
+<td>98%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> A plant wrote off valuable spares with a stock adjustment and no second approver. It surfaced only at the year-end count, after the parts were gone.</p>
+<p><strong>The shift.</strong> Planning, ordering, receipt, production, movement and delivery are read from the event log. Rules flag adjustments without a second approver, goods issues without an order and orders rescheduled again and again. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 supply orders tested. Only 83% followed an approved path. 1,233 (20.6%) failed at least one test, most often: 420 late delivery pattern; 360 frequent order rescheduling; 240 goods issue without order. First action: Carrier and plant delivery-time targets.</p>
+<h3 id="esg-and-sustainability">ESG and sustainability</h3>
+<p><strong>The old way.</strong> The sustainability report was sampled once, after the draft was written: 60 metrics out of 6,000 (1%) traced back to their sources by hand.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 sustainability metrics contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 sustainability metrics</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metric with no source link</td>
+<td>140</td>
+<td>76%</td>
+</tr>
+<tr>
+<td>Missing supplier declaration</td>
+<td>160</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>Late data submission</td>
+<td>190</td>
+<td>85%</td>
+</tr>
+<tr>
+<td>Emissions figure changed after approval</td>
+<td>300</td>
+<td>95%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> An emissions figure in the draft report changed after sign-off, and the team could not show who changed it or why. The assurance provider asked for the evidence trail and there was none.</p>
+<p><strong>The shift.</strong> Each metric is tracked from capture to validation, approval, aggregation and report. Rules flag edits after approval, missing supplier declarations, late submissions and metrics with no source link. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 sustainability metrics tested. Only 84% followed an approved path. 772 (12.9%) failed at least one test, most often: 300 emissions figure changed after approval; 190 late data submission; 160 missing supplier declaration. First action: Lock metrics after approval; changes need a new version.</p>
+<h3 id="customer-experience-cx">Customer experience (CX)</h3>
+<p><strong>The old way.</strong> The team sampled 60 complaints out of 6,000 (1%) and read a monthly service-level report. The monthly average hid the slowest cases.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 customer complaints contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 customer complaints</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Refund without approval</td>
+<td>180</td>
+<td>84%</td>
+</tr>
+<tr>
+<td>Repeated reopening</td>
+<td>240</td>
+<td>91%</td>
+</tr>
+<tr>
+<td>Complaint closed without contact</td>
+<td>300</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>Complaint breaches service level</td>
+<td>330</td>
+<td>97%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> A regulator asked about complaint handling times. The monthly report showed a healthy average, but hundreds of complaints had run far past the promised time and many had been reopened.</p>
+<p><strong>The shift.</strong> Each complaint is read from receipt, triage and resolution to customer contact and close. Rules flag service-level breaches, repeated reopening, refunds without approval and closure without contact. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 customer complaints tested. Only 84% followed an approved path. 1,050 (17.5%) failed at least one test, most often: 330 complaint breaches service level; 300 complaint closed without contact; 240 repeated reopening. First action: Service-level alerts before breach.</p>
+<h3 id="it-service-and-access">IT (service and access)</h3>
+<p><strong>The old way.</strong> The team sampled 60 change tickets out of 6,000 (1%) and ran an access review once a year. Emergency changes were hard to see among the routine ones.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 IT changes contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 IT changes</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access not removed after exit</td>
+<td>120</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>Change released before approval</td>
+<td>180</td>
+<td>84%</td>
+</tr>
+<tr>
+<td>Incident breaches resolution target</td>
+<td>300</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>Emergency change overuse</td>
+<td>420</td>
+<td>99%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> An emergency change reached production without approval and caused an outage. The review later found privileged access still active for people who had left.</p>
+<p><strong>The shift.</strong> Request, approval, test, release, access review and close are read as one flow. Rules flag release before approval, emergency-change overuse, missing access reviews and incidents past target. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 IT changes tested. Only 73% followed an approved path. 1,420 (23.7%) failed at least one test, most often: 480 privileged access without review; 420 emergency change overuse; 300 incident breaches resolution target. First action: Quarterly privileged-access review as a closure step.</p>
+<h3 id="master-data">Master data</h3>
+<p><strong>The old way.</strong> The team sampled 60 vendor and customer changes out of 6,000 (1%). Duplicates and bank-detail changes are rare, so the sample almost never held one.</p>
+<p><strong>What the sample could not see.</strong> Chance that a random sample of 60 master-data changes contains at least one case:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cases in 6,000 master-data changes</th>
+<th>Chance a 60-case sample catches one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Master data created and used by one user</td>
+<td>45</td>
+<td>36%</td>
+</tr>
+<tr>
+<td>Vendor bank change then payment</td>
+<td>70</td>
+<td>51%</td>
+</tr>
+<tr>
+<td>Duplicate vendor or customer</td>
+<td>140</td>
+<td>76%</td>
+</tr>
+<tr>
+<td>Unreviewed change to sensitive field</td>
+<td>300</td>
+<td>95%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The wake-up call.</strong> A duplicate vendor record, created and used by the same person, received a payment. The duplicate had been in the system for months and nobody looked at records, only at transactions.</p>
+<p><strong>The shift.</strong> Every master-data change is read from request and review to approval, update and first use. Rules flag bank changes followed by payment, duplicate records, self-created and self-used records and unreviewed sensitive changes. AI suggests; people decide.</p>
+<p><strong>The first full run.</strong> All 6,000 master-data changes tested. Only 89% followed an approved path. 552 (9.2%) failed at least one test, most often: 300 unreviewed change to sensitive field; 140 duplicate vendor or customer; 70 vendor bank change then payment. First action: Review step mandatory for sensitive fields.</p>
 <h2 id="sample-based-audit-and-continuous-control-audit-side-by-side">Sample-based audit and continuous control audit side by side</h2>
 <table>
 <thead>

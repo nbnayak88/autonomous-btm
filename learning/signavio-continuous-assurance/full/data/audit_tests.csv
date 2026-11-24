@@ -1,0 +1,38 @@
+ID,Audit domain,Control test,Logic,Objects,Signavio component,Fit
+AT-FI-1,Finance (record-to-report),Journal posted by its approver,Poster and approver are the same masked user,"Journal, user",Control library in Process Intelligence,Strong
+AT-FI-2,Finance (record-to-report),Back-dated or period-end journal,Posting date far from entry date near close,"Journal, close calendar",Control library,Strong
+AT-FI-3,Finance (record-to-report),Unusual manual journal to sensitive account,Manual entry to listed accounts above threshold,"Journal, account",Control library,Strong
+AT-FI-4,Finance (record-to-report),Late close task,Close task finished after due date,Close task,Process Intelligence KPI,Strong
+AT-FI-5,Finance (record-to-report),Reversal without original,Reversal document with no linked original,Journal,Control library,Partial
+AT-OC-1,Revenue (order-to-cash),Delivery despite credit block,Goods issue after credit hold and before release,"Order, delivery, credit block",Control library,Strong
+AT-OC-2,Revenue (order-to-cash),Invoice without delivery,Billing with no matching delivery,"Order, delivery, invoice",Control library,Strong
+AT-OC-3,Revenue (order-to-cash),Credit note above limit,Credit note larger than policy with no second approval,"Credit note, approver",Control library,Strong
+AT-OC-4,Revenue (order-to-cash),Price change before billing,Price edited after order approval,"Order item, change log",Control library,Strong
+AT-OC-5,Revenue (order-to-cash),Late cash application,Receipt posted long after bank date,"Receipt, invoice",Process Intelligence KPI,Partial
+AT-HR-1,HR (hire-to-retire),Pay after exit,Payroll run for a person after termination date,"Employee, payroll",Control library,Partial
+AT-HR-2,HR (hire-to-retire),Pay change without approval,Compensation change with no approval event,"Employee, change history",Control library,Partial
+AT-HR-3,HR (hire-to-retire),Hire before approval,Start event before requisition approval,"Requisition, hire",Control library,Partial
+AT-HR-4,HR (hire-to-retire),Same person creates and approves a bank change,Bank detail changed and approved by one user,"Employee, change log",Control library,Partial
+AT-HR-5,HR (hire-to-retire),Excess overtime pattern,Overtime above policy for a period,Time record,Process Intelligence KPI,Limited
+AT-SC-1,Supply chain (plan-to-deliver),Stock adjustment without approval,Inventory adjustment above limit with no second user,"Inventory document, user",Control library,Strong
+AT-SC-2,Supply chain (plan-to-deliver),Goods issue without order,Movement with no linked production or sales order,Inventory document,Control library,Strong
+AT-SC-3,Supply chain (plan-to-deliver),Long-idle stock,No movement for longer than policy,"Material, stock",Process Intelligence KPI,Strong
+AT-SC-4,Supply chain (plan-to-deliver),Late delivery pattern,"Delivery later than promise, by plant or carrier",Delivery,Process Intelligence KPI,Strong
+AT-SC-5,Supply chain (plan-to-deliver),Frequent order rescheduling,Same order date changed repeatedly,"Order, change log",Control library,Strong
+AT-ES-1,ESG and sustainability,Emissions figure changed after approval,Metric edited after sign-off,"Metric, approval, change log",Control library,Limited
+AT-ES-2,ESG and sustainability,Missing supplier declaration,Supplier above spend threshold with no declaration,"Supplier, declaration",Cross-check with P2P data,Limited
+AT-ES-3,ESG and sustainability,Late data submission,Site data submitted after reporting deadline,Submission,Process Intelligence KPI,Partial
+AT-ES-4,ESG and sustainability,Metric with no source link,Reported value with no linked source record,"Metric, source",Control library,Limited
+AT-CX-1,Customer experience (CX),Complaint breaches service level,Resolution time above promised level,Ticket,Process Intelligence KPI,Strong
+AT-CX-2,Customer experience (CX),Repeated reopening,Ticket reopened more than twice,Ticket,Process Intelligence variants,Strong
+AT-CX-3,Customer experience (CX),Refund without approval,Refund above limit with no approval,"Refund, approver",Control library,Partial
+AT-CX-4,Customer experience (CX),Complaint closed without contact,Closed with no customer contact event,"Ticket, contact",Control library,Partial
+AT-IT-1,IT (service and access),Change released before approval,Deployment event before change approval,"Change, release",Control library,Strong
+AT-IT-2,IT (service and access),Access not removed after exit,Active access after leaver date,"User, access, leaver list",Control library with HR feed,Partial
+AT-IT-3,IT (service and access),Emergency change overuse,Share of emergency changes above norm,Change,Process Intelligence KPI,Strong
+AT-IT-4,IT (service and access),Incident breaches resolution target,Incident open longer than target by priority,Incident,Process Intelligence KPI,Strong
+AT-IT-5,IT (service and access),Privileged access without review,Privileged role with no review in the period,"User, role, review",Control library,Partial
+AT-MD-1,Master data,Vendor bank change then payment,Bank change within window before payment,"Vendor, change log, payment",Control library,Strong
+AT-MD-2,Master data,Duplicate vendor or customer,Same tax ID or bank account on two records,"Vendor, customer",Control library,Strong
+AT-MD-3,Master data,Master data created and used by one user,Same user creates and first uses a record,"Vendor, user",Control library,Strong
+AT-MD-4,Master data,Unreviewed change to sensitive field,Sensitive field edited with no review event,Change log,Control library,Strong

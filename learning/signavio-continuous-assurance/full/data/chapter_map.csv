@@ -1,5 +1,6 @@
 Chapter,Title,Part,ADM phase,Primary streams,Supporting streams,9P4V stage,Frameworks
 00,About this Document,Orientation,All,All,All twelve,V1 Vision,"TOGAF, BABOK, DMBOK, BIZBOK, 9P4V"
+21,The OmniVerse Energy Story,Orientation,"Phases A and E",Enterprise; Business,All twelve,V1 Vision,Story
 01,TOGAF Foundations,I Foundations,Preliminary (ADM overview),Enterprise,All other streams,V1 Vision,TOGAF
 02,The Twelve Architecture Streams,I Foundations,All phases,All twelve,(each stream leads its own lens),All,TOGAF streams
 03,The 9P4V Framework,I Foundations,All phases,Enterprise,All other streams,All,9P4V

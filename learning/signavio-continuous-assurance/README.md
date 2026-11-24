@@ -10,3 +10,9 @@ Feature status comes from public SAP material. AI root-cause analysis is beta; a
 Built with the SuccessLabs Academy Paperless Architecture Initiative template.
 
 - [`demo/`](demo/index.html): standalone interactive prototype (synthetic P2P data, process map, variants, conformance, eight control tests, driver analysis, deviation workflow, recommendations, audit landscape). Illustrative prototype, not an SAP product.
+
+## Live pages (GitHub Pages)
+- Landing: https://nbnayak88.github.io/autonomous-btm/learning/signavio-continuous-assurance/
+- Demo: https://nbnayak88.github.io/autonomous-btm/learning/signavio-continuous-assurance/demo/
+- Lite: https://nbnayak88.github.io/autonomous-btm/learning/signavio-continuous-assurance/lite/
+- Full: https://nbnayak88.github.io/autonomous-btm/learning/signavio-continuous-assurance/full/

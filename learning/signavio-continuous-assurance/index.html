@@ -1,9 +1,10 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Continuous Control Audit with SAP Signavio – SuccessLabs Academy</title>
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#17300a">
 <style>
 :root{color-scheme:light;--blk:#0B0B0B;--grn:#78B62E;--lime:#92D337;--deep:#2E5A12}
 *{box-sizing:border-box}
+html{min-height:100%;background:#4c8f1e linear-gradient(160deg,#0B0B0B 0%,#17300a 20%,#3f7d1a 50%,#78B62E 78%,#C6EE74 100%)}
 body{margin:0;font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif;color:var(--blk);min-height:100vh;background:linear-gradient(160deg,#0B0B0B 0%,#17300a 22%,#3f7d1a 55%,#78B62E 80%,#C6EE74 100%);background-color:#7FBF2E}
 .wrap{max-width:1040px;margin:0 auto;padding:0 24px 56px}
 header{display:flex;align-items:center;gap:16px;padding:22px 0}
@@ -25,12 +26,22 @@ a.card .go{display:inline-block;margin-top:12px;color:var(--deep);font-weight:70
 .strip{margin-top:26px;background:rgba(11,11,11,.55);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:16px 20px;color:#eaf8cf;font-size:14.5px}
 .strip b{color:var(--lime)}
 .strip ul{margin:8px 0 0;padding-left:20px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 4px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;border-radius:30px;padding:13px 26px;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.b1{background:linear-gradient(135deg,#C6EE74,#92D337);color:#0B0B0B}
+.b2{background:#0B0B0B;color:#92D337;border:1px solid #92D337}
+.b3{background:rgba(255,255,255,.95);color:#2E5A12}
+.b4{background:linear-gradient(135deg,#78B62E,#2E5A12);color:#fff;border:1px solid #C6EE74}
+.lab{margin-top:26px;background:linear-gradient(135deg,rgba(198,238,116,.95),rgba(146,211,55,.92));color:#0B0B0B;border-radius:16px;padding:20px 24px;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.lab h2{margin:0 0 6px;font-size:21px}.lab p{margin:0 0 12px}
 footer{margin-top:26px;color:#e3f6bf;font-size:13px}
 </style></head><body><div class="wrap">
 <header><img src="lite/assets/logo.png" alt="SuccessLabs Academy"><span>SuccessLabs Academy · Architecting for a Better World</span></header>
 <section class="hero">
 <h1>Continuous Control Audit, <em>Zero Samples</em><br>AI-Powered Process Intelligence with SAP Signavio</h1>
 <p>From periodic, sample-based SAP audits to continuous, AI-powered process intelligence. A reference architecture, a fictional story (OmniVerse Energy) and an interactive demo across nine audit processes.</p>
+<div class="ctas"><a class="btn b1" href="demo/">▶ Open the live demo</a><a class="btn b2" href="lite/">Read the lite edition</a><a class="btn b3" href="full/">Browse the full edition</a><a class="btn b4" href="https://flow.successlabsacademy.com/" target="_blank" rel="noopener">Visit Process Excellence Lab ↗</a></div>
 <div class="tags"><span>Procure-to-Pay</span><span>Finance</span><span>Revenue</span><span>HR</span><span>Supply chain</span><span>ESG</span><span>CX</span><span>IT</span><span>Master data</span></div>
 </section>
 <div class="grid">
@@ -38,6 +49,7 @@ footer{margin-top:26px;color:#e3f6bf;font-size:13px}
 <a class="card" href="lite/"><span class="k">CORE TOPICS</span><b>Lite edition</b><small>The short read: stories, sample vs continuous comparison, blueprint, components, control tests, decisions, roadmap and risks.</small><span class="go">Open the lite edition →</span></a>
 <a class="card" href="full/"><span class="k">COMPLETE</span><b>Full edition</b><small>The complete architecture document with deck, workbook and handbook, built on the Paperless Architecture Initiative template.</small><span class="go">Open the full edition →</span></a>
 </div>
+<section class="lab"><h2>New to process thinking? Start in the Process Excellence Lab</h2><p>This work builds on the SuccessLabs Process Excellence Lab, a hands-on learning site for understanding how processes really run, where they break and how to improve them. Use it to warm up before the demo, or as a follow-up after the session.</p><a class="btn b2" href="https://flow.successlabsacademy.com/" target="_blank" rel="noopener">flow.successlabsacademy.com ↗</a></section>
 <div class="strip"><b>How to read these three.</b>
 <ul><li>Start with the <b>demo</b> if you want to see it work; start with <b>lite</b> if you want the argument in ten minutes.</li><li>Session format: 10 minutes on experience, trends and architecture; 15 minutes of prototype walkthrough; 5 minutes on future perspectives.</li></ul></div>
 <footer>OmniVerse Energy Ltd. is a fictional company and all data is synthetic. The demo is an illustrative prototype, not SAP Signavio and not an SAP product. Confirm product status with SAP. © SuccessLabs Academy.</footer>

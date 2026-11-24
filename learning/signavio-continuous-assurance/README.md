@@ -8,3 +8,5 @@ Client-neutral solution architecture for moving SAP audits from periodic, sample
 Feature status comes from public SAP material. AI root-cause analysis is beta; agentic risk mining is roadmap, not a commitment. Confirm with the vendor.
 
 Built with the SuccessLabs Academy Paperless Architecture Initiative template.
+
+- [`demo/`](demo/index.html): standalone interactive prototype (synthetic P2P data, process map, variants, conformance, eight control tests, driver analysis, deviation workflow, recommendations, audit landscape). Illustrative prototype, not an SAP product.

@@ -97,6 +97,7 @@ figure{margin:20px 0;text-align:center}figure img{max-width:100%;border:1px soli
 <li><a href="#act-6-one-blueprint-nine-audits">Act 6. One blueprint, nine audits</a></li>
 <li><a href="#act-7-what-changed-for-the-people">Act 7. What changed for the people</a></li>
 <li><a href="#sample-based-audit-and-continuous-control-audit-side-by-side">Sample-based audit and continuous control audit side by side</a></li>
+<li><a href="#which-component-does-what-layered-view">Which component does what (layered view)</a></li>
 <li><a href="#try-it">Try it</a></li>
 </ul>
 </div>
@@ -110,7 +111,7 @@ figure{margin:20px 0;text-align:center}figure img{max-width:100%;border:1px soli
 <h2 id="act-1-the-old-way">Act 1. The old way</h2>
 <p>Every year the team pulled 60 purchase orders out of 12,000 (half of one percent), asked the business for the paperwork, and tested each one by hand. The report said: no material findings. It took six weeks, and it was out of date the day it was signed.</p>
 <h2 id="act-2-what-the-sample-could-not-see">Act 2. What the sample could not see</h2>
-<p>A random sample of 60 orders has a very different chance of catching each kind of problem. It is almost certain to catch a widespread issue such as payment without goods receipt (720 orders, about 98% chance). It has only about a 50% chance of catching an after-the-fact order (140 orders), about 21% for the 23 duplicate payments, and about 4% for the 9 orders approved by the person who created them. Sampling finds what is common. It misses what is rare, and rare is where fraud and serious error live.</p>
+<p>A random sample of 60 orders has a very different chance of catching each kind of problem. It is almost certain to catch a widespread issue such as payment without goods receipt (720 orders, about 98% chance). It has only about a 50% chance of catching an after-the-fact order (140 orders), about 11% for the 23 duplicate payments, and about 4% for the 9 orders approved by the person who created them. Sampling finds what is common. It misses what is rare, and rare is where fraud and serious error live.</p>
 <h2 id="act-3-the-wake-up-call">Act 3. The wake-up call</h2>
 <p>A supplier phoned to ask why a payment had gone to a new bank account. Nobody in audit had seen it: the bank change and the payment sat in two systems and two reports. The board asked one question: how many more are there that we have not looked at?</p>
 <h2 id="act-4-the-shift">Act 4. The shift</h2>
@@ -250,6 +251,112 @@ figure{margin:20px 0;text-align:center}figure img{max-width:100%;border:1px soli
 </tbody>
 </table>
 <p><strong>Limits.</strong> Continuous auditing does not remove the auditor. A person still confirms the cause and decides what to do. It also needs good, trusted data and clear control rules before it pays off.</p>
+<h2 id="which-component-does-what-layered-view">Which component does what (layered view)</h2>
+<p>The demo's Simulate screen lights up each box below as cases flow through. Status follows public SAP material at the time of writing; confirm with SAP.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Component</th>
+<th>Status</th>
+<th>What it does</th>
+<th>Live counter in the demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Source systems</td>
+<td>SAP source systems</td>
+<td>Existing system</td>
+<td>Hold the transactions and change history for the process (for P2P: purchase orders, goods receipts, invoices, payments).</td>
+<td>Events read</td>
+</tr>
+<tr>
+<td>2 Extract and mask</td>
+<td>Read-only extract and masking</td>
+<td>Design choice</td>
+<td>Thin extract; personal data masked before load. Options: customer-hosted job, SAP Integration Suite or Datasphere.</td>
+<td>Records masked</td>
+</tr>
+<tr>
+<td>3 SAP Signavio Process Intelligence</td>
+<td>Data pipeline and event log</td>
+<td>Available</td>
+<td>Turns source tables into an object-centric event log.</td>
+<td>Cases built</td>
+</tr>
+<tr>
+<td>3 SAP Signavio Process Intelligence</td>
+<td>Discovery and variants</td>
+<td>Available</td>
+<td>Draws the process map and counts every path.</td>
+<td>Paths seen</td>
+</tr>
+<tr>
+<td>3 SAP Signavio Process Intelligence</td>
+<td>Control tests</td>
+<td>Available (configuration)</td>
+<td>Runs each rule on every case; thresholds are parameters.</td>
+<td>Checks run, deviations fired</td>
+</tr>
+<tr>
+<td>4 SAP Signavio Process Manager and Governance</td>
+<td>Process Manager: target model</td>
+<td>Available</td>
+<td>Approved paths used to judge conformance.</td>
+<td>Share conforming</td>
+</tr>
+<tr>
+<td>4 SAP Signavio Process Manager and Governance</td>
+<td>Process Governance: workflow</td>
+<td>Available</td>
+<td>Each flagged case becomes a task; closing needs a recorded cause.</td>
+<td>Tasks raised</td>
+</tr>
+<tr>
+<td>5 AI and assistants</td>
+<td>Joule / Process Consulting Agent</td>
+<td>Available (usage allowance)</td>
+<td>Answers questions in plain language on the process data.</td>
+<td>Questions answered</td>
+</tr>
+<tr>
+<td>5 AI and assistants</td>
+<td>AI root-cause analysis</td>
+<td>Beta</td>
+<td>Suggests where deviations concentrate; a person confirms.</td>
+<td>Suggested driver</td>
+</tr>
+<tr>
+<td>5 AI and assistants</td>
+<td>Agentic risk mining</td>
+<td>Roadmap, no commitment</td>
+<td>Outside the core path.</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>6 Publish and operate</td>
+<td>Collaboration Hub</td>
+<td>Available</td>
+<td>Auditors and process owners read the results.</td>
+<td>Live flag rate</td>
+</tr>
+<tr>
+<td>6 Publish and operate</td>
+<td>SAP Build Process Automation</td>
+<td>Optional, separate product</td>
+<td>Automates remediation only after approval.</td>
+<td>Off in the demo</td>
+</tr>
+<tr>
+<td>6 Publish and operate</td>
+<td>SAP BTP: identity and hosting</td>
+<td>Optional platform</td>
+<td>Single sign-on, roles and hosting region.</td>
+<td>Roles and region checked</td>
+</tr>
+</tbody>
+</table>
 <h2 id="try-it">Try it</h2>
 <p>The interactive demo replays these nine cases on synthetic data: pick a process, then run Discover, Variants, Conformance, Control tests, Investigate, Act and Recommend, or watch the flow in Simulate.</p><div class="notes"><h4>Notes</h4><div class="nl"></div><div class="nl"></div><div class="nl"></div><div class="nl"></div></div><div class="pnav"><a class="pn" href="20-audit-extension.html">← Extending to Other Audits (Phases E and F)</a><span></span></div></main></div>
 <footer class="foot"><span>SuccessLabs Academy · Reusable architecture template · No client data</span><span>v0.1 · built 2026-11-24</span></footer>

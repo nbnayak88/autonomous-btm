@@ -1,0 +1,11 @@
+Area,Standard,Notes
+Hosting,Multi-tenant cloud service; choose the data-centre region at tenancy set-up,SAP publishes the data-centre list in its trust-centre reports; confirm the current list and your residency rule before contract
+Assurance reports,"Independent attestation reports (SOC 1, C5) from the vendor",Request the latest report and review its scope and exclusions
+Identity,SAML 2.0 single sign-on; role-based access; named users,"Separate roles for auditor, analyst, process owner and administrator"
+Data movement,Encrypted transfer (TLS); read-only technical user in the source,No write-back to the source system
+Data protection,Pseudonymise user IDs and vendor identifiers before load; keep the key in the source domain,"Re-identify only in the source domain, for an approved investigation"
+Event log,"Activity, timestamp and case or object identifiers; object-centric model for P2P",Keep object types and relationships in the data dictionary
+Staging formats,CSV or Parquet with a run manifest and row counts,Parquet for volume; CSV for simplicity
+Process notation,BPMN 2.0 for the target model; DMN for decision rules where used,One owner per model
+AI use,Assistive; answers grounded in the data; human decision on every deviation,Beta and roadmap features are not dependencies; check the monthly AI usage allowance
+Retention,Evidence retained per audit-record policy [retention period],"Set in the evidence repository, not in the mining tool"

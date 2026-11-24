@@ -1,0 +1,9 @@
+Activity,Business owner,Business analyst,Enterprise architect,Data steward,Security,Finance,Delivery lead
+Approve scope and control library,A,R,C,C,C,C,I
+Confirm hosting region and reports,I,I,R,C,A,C,C
+Design masking and extraction,C,C,C,A,R,I,R
+Build event log and object model,I,C,A,R,C,I,R
+Model target process and controls,A,R,C,C,C,C,I
+Run tests and review deviations,A,R,I,C,I,C,I
+Approve closure of deviations,A,C,I,I,I,C,I
+Report to audit committee,A,R,I,C,I,C,I

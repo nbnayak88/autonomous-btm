@@ -1,0 +1,25 @@
+Entity,Attribute,Type,Mandatory,Rule / domain,Personal data,DQ dimension
+Purchase order,PO number,Identifier,Yes,Unique per company code,No,Uniqueness
+Purchase order,Created by,Identifier (masked),Yes,Pseudonymised before load,Yes,Validity
+Purchase order,Created on,Timestamp,Yes,Not after invoice date unless flagged,No,Timeliness
+Purchase order,Approved by,Identifier (masked),Yes,Must differ from Created by,Yes,Validity
+Purchase order item,Net price,Decimal,Yes,Greater than zero; currency present,No,Accuracy
+Purchase order item,Quantity,Decimal,Yes,Greater than zero,No,Accuracy
+Goods receipt,Posting date,Timestamp,Yes,Valid calendar date,No,Timeliness
+Goods receipt,Quantity received,Decimal,Yes,Reconciles to PO item,No,Accuracy
+Invoice,Invoice number,Text,Yes,Vendor plus number unique,No,Uniqueness
+Invoice,Invoice date,Timestamp,Yes,Valid; not in future,No,Validity
+Invoice,Amount,Decimal,Yes,Within tolerance of PO and receipt,No,Accuracy
+Payment,Payment date,Timestamp,Yes,After invoice posting,No,Consistency
+Payment,Block reason,Code,No,From controlled list,No,Validity
+Vendor,Vendor ID,Identifier (masked),Yes,Pseudonymised before load,Yes,Uniqueness
+Vendor,Bank details changed on,Timestamp,No,From change log,No,Timeliness
+Change log entry,Object and field,Text,Yes,Object type and field name,No,Completeness
+Change log entry,Changed by,Identifier (masked),Yes,Pseudonymised before load,Yes,Validity
+Event,Activity,Text,Yes,From controlled activity list,No,Consistency
+Event,Timestamp,Timestamp,Yes,Time zone stated,No,Timeliness
+Event,Object references,List of identifiers,Yes,"PO, item, receipt, invoice, payment",No,Completeness
+Control test result,Test ID,Identifier,Yes,From control library,No,Validity
+Control test result,Outcome,Code,Yes,"Pass, deviation, not testable",No,Validity
+Deviation case,Disposition,Code,Yes,"Confirmed, false positive, accepted, remediated",No,Validity
+Deviation case,Confirmed cause,Text,Yes,Recorded by a person,No,Completeness

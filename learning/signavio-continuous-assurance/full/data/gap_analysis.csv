@@ -1,0 +1,9 @@
+Domain,Baseline (typical),Target,Gap,Closing work package
+Business,Sample-based audit once a year,Population tested every cycle,Cycle and coverage,"WP-05, WP-06"
+Business,Manual evidence collection,Evidence captured by default,Evidence process,WP-06
+Data,Tables pulled by hand on request,Scheduled read-only masked extract,Extraction and masking,WP-03
+Data,No linked view of PO to payment,Object-centric event log,Event model,WP-04
+Application,Spreadsheet tests,Versioned control library,Test library,"WP-02, WP-06"
+Application,Findings in email,Workflow with approval and closure,Workflow,WP-07
+AI,Ad hoc analysis,Assistive questions and driver suggestions,AI use rules,WP-08
+Technology,No agreed hosting position,Region and reports confirmed,Hosting decision,WP-01

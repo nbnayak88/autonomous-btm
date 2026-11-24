@@ -1,0 +1,11 @@
+ID,Domain,Name,Statement,Rationale,Implications
+P-B1,Business,Test the population,"Audit tests run on all transactions, not a sample.",Sampling misses rare but costly events.,Design for volume; report coverage.
+P-B2,Business,Evidence by default,"Every test result is kept with run, rule version and links.","Auditors rely on evidence, not memory.",Retain results outside the mining tool.
+P-D1,Data,"Read-only, minimum data","Extract only the tables and fields the tests need, read-only.",Reduces risk and load on the source.,Field list per test; no write-back.
+P-D2,Data,Mask before load,Personal identifiers are pseudonymised before leaving the source domain.,Protects people; eases residency approval.,Key stays with the source team.
+P-A1,Application,Standard first,Use the standard suite features before custom code.,Lower cost and easier upgrade.,Custom code only where a gap is shown.
+P-A2,Application,Object-centric by default,"Model P2P as linked objects, not one forced case ID.",P2P has many-to-many links.,Keep an object and relationship dictionary.
+P-A3,Application,Tests as configuration,Control tests are versioned configuration with an owner.,Tests change often; audits need history.,One library; thresholds as parameters.
+P-AI1,AI,"Assist, never decide",AI suggests; a person decides and records the cause.,Accountability stays with people.,Human step on every deviation; log AI use.
+P-AI2,AI,No beta in the critical path,Beta and roadmap features are optional add-ons.,Avoid dependency on unreleased features.,Core design works without them.
+P-T1,Technology,Region and reports first,Confirm hosting region and attestation reports before data moves.,Residency and assurance are gating.,Decision recorded in ADR-01.

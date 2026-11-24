@@ -1,0 +1,9 @@
+ID,Dimension,Rule,Applies to,Threshold,Action on failure,Owner
+DQ-01,Completeness,Every extracted table row count equals the source count,All tables,100%,Stop the load; alert,Data engineer
+DQ-02,Uniqueness,"No duplicate event for the same object, activity and timestamp",Event,0 duplicates,Remove and log,Data engineer
+DQ-03,Validity,Activity names come from the controlled list,Event,100%,Map or reject,Process analyst
+DQ-04,Timeliness,Load completes within the agreed window,All loads,[window],Alert operations,SAP team
+DQ-05,Consistency,Payment date is not before invoice posting date,Payment,Report exceptions,"Flag as data issue, not deviation",Finance data steward
+DQ-06,Accuracy,Amounts reconcile to source totals by company code and period,"Invoice, payment",Within [tolerance],Stop the load; alert,Finance data steward
+DQ-07,Validity,Masked identifiers are consistent across tables,"Vendor, user fields",100%,Stop the load,Data protection lead
+DQ-08,Completeness,Change log covers vendor bank and PO approval fields,Change log entry,100% of tracked fields,Raise to SAP team,Audit data steward

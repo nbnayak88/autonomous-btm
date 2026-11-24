@@ -1,0 +1,10 @@
+ID,Work package,Transition architecture,Phase / wave,Depends on,Deliverable
+WP-01,"Mobilise, scope and hosting decision",TA0 Baseline,Preliminary / A,None,"Charter, principles, ADR-01 hosting region"
+WP-02,Target P2P model and control library,TA0 Baseline,B / C,WP-01,Approved BPMN model; list of eight tests with owners
+WP-03,"Extraction, masking and staging",TA1 Data in,C / D,WP-01,"Read-only extract, masking, run manifest"
+WP-04,Event log and object model,TA1 Data in,C / D,WP-03,Object-centric model; DQ rules live
+WP-05,"Discovery, variants and conformance",TA2 Insight,D,"WP-02, WP-04",Process map; conformance view
+WP-06,Control tests and evidence,TA2 Insight,D,WP-05,Five tests live; evidence export
+WP-07,Deviation workflow and publishing,TA3 Action,E / F,WP-06,"Tasks, approval, hub for auditors"
+WP-08,Conversational and AI-assisted analysis,TA3 Action,E / F,WP-06,"Assistant for analysts; root-cause suggestions (GA or beta, flagged)"
+WP-09,Side-by-side run and handover,TA3 Action,G / H,WP-07,Comparison report; operating model; test library owner

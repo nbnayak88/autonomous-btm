@@ -1,0 +1,12 @@
+ID,Interface,From,To,Direction,Mode,Frequency,Data,Classification
+IF-01,Table extract,C01 SAP source,C04 Extraction and staging,In,Read-only extract,Daily; hourly optional,"EKKO, EKPO, EKBE, RBKP, RSEG, BKPF, BSEG, LFA1, change documents",Confidential
+IF-02,Event data load,C04 Staging,C05 ETL and transformations,In,Secure file or connector,Daily,Masked P2P tables with run manifest,Confidential
+IF-03,Supporting events,C02 Other sources,C05 ETL and transformations,In,Connector or file,Daily,"Tickets, approvals, portal changes",Internal
+IF-04,Target model link,C09 Process Manager,C08 Analysis engine,Two-way,Platform integration,On publish,"Target P2P model, control annotations",Internal
+IF-05,Deviation task,C08 Analysis engine,C11 Deviation workflow,Out,Platform integration or API,On detection,"Deviation ID, test, documents, owner",Confidential
+IF-06,Corrective action,C11 Deviation workflow,C15 Remediation automation,Out,API or workflow trigger,On approval,"Action request, approver, evidence link",Confidential
+IF-07,Conversational query,C12 Assistant,C08 Analysis engine,Two-way,Platform feature,On demand,"Question, aggregated answer; masked identifiers",Confidential
+IF-08,Findings export,C08 Analysis engine,C18 Evidence and reporting,Out,Export or API,Per run,"Test results, dispositions, snapshots",Confidential
+IF-09,Single sign-on,C17 Identity provider,Signavio suite,In,SAML 2.0,On login,"Identity, group, role claims",Internal
+IF-10,Risk and control link (optional),C09 Process Manager,Enterprise risk and control system,Two-way,Platform compatibility,Per change,Risk and control references,Internal
+IF-11,Notification,C11 Deviation workflow,Email or chat gateway,Out,Gateway,On task,Task link and due date only (no document data),Internal

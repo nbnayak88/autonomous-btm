@@ -1,0 +1,35 @@
+Element,Level,Item,Generic example (infrastructure operator),Template register
+Strategy,L1,Vision and mission,"Reliable, safe, sustainable service for all communities","Objectives, vision"
+Strategy,L2,Strategic objectives,Cut service interruptions; protect assets from third-party damage; improve customer trust,Objectives register
+Strategy,L3,Courses of action,Digital asset register; permit and notification workflow; field verification,Work packages
+Capability,L1,Plan and design network,Demand forecasting; network planning; engineering design,Capabilities register
+Capability,L1,Build and maintain assets,Construction; inspection; preventive maintenance,Capabilities register
+Capability,L1,Operate and monitor,Network monitoring; incident response; field dispatch,Capabilities register
+Capability,L1,Serve customers and the public,Service requests; billing; complaints and notices,Capabilities register
+Capability,L1,Govern and enable,Risk and compliance; finance; workforce; data management,Capabilities register
+Capability,L2,Assurance (under Govern and enable),Test controls; investigate deviations; drive corrective action,Capabilities register
+Capability,L3,Detect deviations,Conformance checks; control tests; analyst review,Capabilities register
+Organization,L1,Executive and governance,"Board, steering committee, architecture board","Stakeholders, RACI"
+Organization,L1,Operating units,"Planning, operations, maintenance, customer service, legal","Stakeholders, RACI"
+Organization,L1,External parties,"Regulators, municipalities, contractors, landowners, public",Stakeholders
+Organization,L2,Roles on a case,"Case owner, field inspector, legal officer, approver",RACI
+Value,L1,Deliver reliable service,"Request service, connect, supply, restore",Value stream register
+Value,L1,Protect and maintain assets,"Detect, assess, resolve, verify, close",Value stream register
+Value,L2,Resolve a deviation,Detect; investigate; decide; act; verify; close,Value stream register
+Value,L3,Stakeholder value per stage,Owner knows status; public gets clear notice; regulator gets evidence,Value stream register
+Information,L1,Core business objects,"Asset, location, parcel, party, case, permit, notice",Data entities
+Information,L2,Attributes and relations,Case belongs to asset and parcel; notice belongs to case,Data dictionary
+Information,L3,Quality rules,"Every case has a location, a status and an owner","Data dictionary, DMBOK"
+Initiative,L1,Programmes,Asset digitisation; case management; analytics,Work packages
+Initiative,L2,Initiative to capability impact,"Case management raises Detect, Resolve and Verify maturity",Gap analysis
+Initiative,L3,Roadmap waves,Wave 1 foundation; wave 2 workflow; wave 3 analytics,Roadmap
+Product,L1,Services offered,"Connection, supply, permit to work near assets, public notices",Capabilities (business services)
+Product,L2,Service variants,Standard permit; emergency permit; temporary permit,Add a products register
+Stakeholder,L1,Groups,"Customers, public, regulator, landowners, contractors, employees",Stakeholders register
+Stakeholder,L2,Interests and influence,Regulator: compliance evidence; public: safety and clarity,Stakeholders register
+Policy,L1,Policy areas,"Safety, permitting, data protection, enforcement","Business rules, principles"
+Policy,L2,Rules,No structure within the protected corridor without a permit,Business rules
+Policy,L3,Rule to capability link,The permit rule governs Detect and Resolve,Traceability
+Metrics,L1,Outcome measures,Interruptions caused by third-party damage; case cycle time,KPI register
+Metrics,L2,Capability measures,Detection lead time; share of cases closed on time,KPI register
+Metrics,L3,Data measures,Share of cases with verified location,KPI register

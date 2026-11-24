@@ -1,0 +1,8 @@
+Stage,Trigger / entry,Key activities,Stakeholders,Value item,Exit criterion
+1 Extract,Schedule or on-demand run,"Read P2P tables, mask, stage, reconcile counts","SAP team, data steward","Trusted, complete data",Run manifest signed; counts reconcile
+2 Model,New load,Transform to event log; link objects,Data engineer,One event log for P2P,Data checks pass
+3 Discover,Event log ready,"Map process, explore variants and KPIs","Analyst, process owner",Shared fact base,Reference view agreed
+4 Detect,Target model and tests ready,Check conformance; run control tests,Internal auditor,Deviations across 100% of cases,Deviation list with evidence links
+5 Investigate,Deviation raised,Drill to documents; test hypotheses; use AI suggestions,"Auditor, analyst",Cause understood,Cause recorded and confirmed by a person
+6 Act,Cause confirmed,"Route, approve and track remediation","Process owner, finance",Risk reduced,Disposition recorded; action closed
+7 Learn and report,Period end,"Update model, tests and thresholds; report","Audit lead, process owner","Better controls, less noise",Report issued; test library updated

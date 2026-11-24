@@ -1,0 +1,19 @@
+Term,Meaning
+Process intelligence,"Process mining plus target model, controls, measures, workflow and action"
+BRD,Business Requirements Document
+HLDD,High-Level Design Document
+TOGAF ADM,The Open Group Architecture Framework: Architecture Development Method
+ABB / SBB,Architecture building block (what) / solution building block (how)
+BACCM,"Business Analysis Core Concept Model: change, need, solution, stakeholder, value, context"
+MoSCoW,"Must, Should, Could, Won't: prioritisation scale"
+DMBOK,Data Management Body of Knowledge (DAMA International)
+Data owner,Role accountable for a data domain
+Data steward,Role that manages data quality and definitions day to day
+SLA,Service-level agreement: a time target for a stage or action
+RTO / RPO,Recovery time objective / recovery point objective
+DMS,Document management system
+ESB / iPaaS,Enterprise service bus / integration platform as a service
+RBAC,Role-based access control
+ADR,Architecture decision record
+DoR / DoD,Definition of ready / definition of done
+Paperless architecture,"Architecture artefacts created, reviewed, approved and consumed online from a versioned repository, with no file exchange"

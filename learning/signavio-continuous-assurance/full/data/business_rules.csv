@@ -1,0 +1,11 @@
+ID,Rule,Type,Source,Enforced by
+BRL-01,"Payment must follow a matching purchase order, goods receipt and invoice (three-way match) within tolerance.",Control test,Policy,C16 in C08
+BRL-02,"An invoice must not be paid twice; same vendor, amount and reference within a window is flagged.",Control test,Policy,C16 in C08
+BRL-03,The person who creates a purchase order must not approve it.,Segregation of duties,Policy,C16 in C08
+BRL-04,A purchase order raised after the invoice date is an after-the-fact order and is flagged.,Control test,Policy,C16 in C08
+BRL-05,Several orders to one vendor just below the approval threshold within a window are flagged as split orders.,Control test,Policy,C16 in C08
+BRL-06,A change to vendor bank details shortly before a payment is flagged for review.,Control test,Policy,C16 in C08
+BRL-07,A manual payment-block release is flagged unless approved by a second person.,Control test,Policy,C16 in C08
+BRL-08,A price or quantity change after approval above a tolerance is flagged.,Control test,Policy,C16 in C08
+BRL-09,A deviation is closed only by a person with a recorded cause and decision.,Constraint,Audit policy,C11
+BRL-10,Thresholds and windows are parameters held in the control library with an owner and version.,Constraint,Audit policy,C16

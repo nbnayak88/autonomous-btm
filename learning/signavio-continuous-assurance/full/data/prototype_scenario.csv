@@ -1,0 +1,8 @@
+Step,Minute,Screen,What the audience sees,Synthetic data cue,Architecture link
+1,0-2,Discover,"P2P process map from requisition to payment, with volumes","12,000 POs, 10 company codes (synthetic)","C05, C07, C08"
+2,2-4,Variants,Top 10 variants; 38% follow the standard path; rework loops highlighted,Variant 1 = standard; variant 7 = invoice before PO,C08
+3,4-6,Conformance,Compare with target model; non-conforming cases listed,Conformance rate 71%,"C08, C09"
+4,6-9,Control tests,"Three-way match, duplicate payment, SoD, split orders, after-the-fact PO",Seeded: 140 after-the-fact POs; 23 duplicate invoices; 9 SoD conflicts,"C16, C08"
+5,9-12,Investigate,"Drill to document; AI suggests drivers (one vendor group, one plant, month-end)",Driver: plant P3 + vendor group V2,"C12, C13"
+6,12-14,Act,Raise deviation task; approver records cause and disposition,Task routed to process owner,"C11, C15"
+7,14-15,Recommend,Ranked transformation ideas with effect and effort,Enforce PO-before-invoice; add approval limit,"C08, C12"

@@ -1,0 +1,9 @@
+ID,Process,Level,Owner,Trigger,Output,Systems
+PR-01,Extract and mask P2P data,L2,SAP team,Schedule,Masked tables and run manifest,"C01, C03, C04"
+PR-02,Build and refresh the event log,L2,Data engineer,New load,Event log and object links,"C05, C07"
+PR-03,Maintain target P2P model and controls,L2,Process owner,Change or review,Approved model with controls,"C09, C10"
+PR-04,Discover and analyse the process,L2,Process analyst,Refresh,"Process map, variants, KPIs",C08
+PR-05,Check conformance and run control tests,L2,Internal auditor,Refresh,Deviation list,"C08, C16"
+PR-06,Investigate a deviation,L3,Internal auditor,Deviation raised,Confirmed cause,"C08, C12, C13"
+PR-07,Remediate and close,L3,Process owner,Cause confirmed,Disposition and action,"C11, C15"
+PR-08,Report and retain evidence,L2,Audit lead,Period end,Assurance report and evidence,"C18, C10"

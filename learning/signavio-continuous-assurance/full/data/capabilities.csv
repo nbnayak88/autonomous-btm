@@ -1,0 +1,11 @@
+L1 domain,L2 capability,Description,Target maturity (1-5),Supported by
+Process visibility,End-to-end P2P discovery,"See how purchase-to-pay really runs, from requisition to payment",4,"C05, C07, C08"
+Process visibility,Variant and performance analysis,"Compare paths, durations and rework",4,C08
+Control assurance,Conformance checking,Compare actual flow with the target model,4,"C08, C09"
+Control assurance,Control deviation detection,Run audit tests on 100% of the population,4,"C08, C16"
+Control assurance,Evidence capture,"Keep who, what, when and result for each test",4,C18
+Investigation,Root-cause investigation,"Find drivers of a deviation by vendor, user, plant or period",3,"C08, C13"
+Investigation,Conversational analytics,Ask questions in plain language and get grounded answers,3,C12
+Action,Deviation workflow,"Assign, review, decide and close each deviation",4,"C11, C15"
+Governance,Process and control model governance,"Version and approve models, risks and controls",4,"C09, C10, C11"
+Governance,Assurance reporting,"Report coverage, deviations and closure to audit committee",4,"C18, C10"

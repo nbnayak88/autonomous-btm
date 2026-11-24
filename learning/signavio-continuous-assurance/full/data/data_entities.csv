@@ -1,0 +1,12 @@
+Entity,Description,Data domain,Data owner (role),Steward (role),System of record,Classification,Retention
+Purchase requisition,Request to buy,Procurement,Head of procurement,Procurement data steward,C01,Internal,[per policy]
+Purchase order,Commitment to a vendor,Procurement,Head of procurement,Procurement data steward,C01,Confidential,[per policy]
+Purchase order item,Line on the order with quantity and price,Procurement,Head of procurement,Procurement data steward,C01,Confidential,[per policy]
+Goods receipt,Receipt of goods or services,Logistics,Head of operations,Logistics data steward,C01,Internal,[per policy]
+Invoice,Vendor invoice and its match status,Finance,Financial controller,Finance data steward,C01,Confidential,[per policy]
+Payment,Payment document and block status,Finance,Financial controller,Finance data steward,C01,Confidential,[per policy]
+Vendor,Supplier master and bank reference,Master data,Head of procurement,Vendor master steward,C01,Restricted,[per policy]
+Change log entry,Who changed what and when,Audit,Chief audit executive,Audit data steward,C01,Restricted,[per policy]
+Event,One timestamped activity linked to objects,Process data,Process owner,Data engineer,C05,Confidential,Refresh cycle
+Control test result,Outcome of one test on one object,Assurance,Chief audit executive,Audit data steward,C18,Confidential,[audit-record policy]
+Deviation case,A confirmed or open deviation with disposition,Assurance,Chief audit executive,Audit data steward,C11,Confidential,[audit-record policy]

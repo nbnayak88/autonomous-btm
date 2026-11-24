@@ -1,0 +1,11 @@
+ID,KPI,Definition / formula,Frequency,Owner,Target
+K-01,Population coverage,Transactions tested / transactions in scope,Per run,Chief audit executive,100%
+K-02,Deviation rate by test,"Deviations / transactions tested, by test",Per run,Internal audit lead,Trend only
+K-03,False-positive rate,Deviations closed as false positive / deviations raised,Monthly,Internal audit lead,[x]%
+K-04,Time to detect,Deviation detected date minus posting date,Monthly,Internal audit lead,[x] days
+K-05,Time to close,Closure date minus detection date,Monthly,Process owner,[x] days
+K-06,Conformance rate,Cases following the target model / all cases,Per run,Process owner,[x]%
+K-07,Evidence completeness,Test results with full evidence / all results,Per run,Audit data steward,100%
+K-08,Load success,Loads completed in window / loads scheduled,Daily,SAP team,[x]%
+K-09,Manual evidence hours,Hours spent collecting evidence per audit,Per audit,Internal audit lead,Reduce vs baseline
+K-10,AI suggestion acceptance,Suggestions confirmed by an analyst / suggestions shown,Monthly,Process analyst,Trend only

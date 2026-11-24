@@ -1,0 +1,10 @@
+Stakeholder,Role in change,Concern (TOGAF),Power,Interest,Engagement approach
+Chief audit executive,Sponsor,Assurance coverage; credible evidence; cost,High,High,Co-design scope; approve control library
+Internal auditors,Primary users,Trustworthy findings; less manual work,Medium,High,Hands-on prototype; weekly review
+"Process owners (procurement, finance)",Owners of controls,Fair findings; clear actions,High,Medium,Share findings by role; agree thresholds
+Enterprise architect,Design authority,Fit with landscape; no lock-in,High,High,Review blueprint and ADRs
+SAP basis and data team,Provide extracts,Source system load and stability,Medium,Medium,Agree read-only extract window
+Data protection lead,Control owner,Personal data; residency,High,Medium,Approve masking design
+Security and identity team,Control owner,Access; single sign-on; hosting,High,Medium,Review hosting and role model
+External auditor,Reviewer,Reliance on the tool's evidence,Medium,Medium,Walk through test library and evidence
+Executive leadership / audit committee,Consumer of reports,Risk posture; value,High,Low,Quarterly report

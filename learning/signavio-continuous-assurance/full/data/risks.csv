@@ -1,0 +1,10 @@
+ID,Risk,Likelihood (1-5),Impact (1-5),Score,Mitigation,Owner
+RK-01,Hosting region or residency rule not met by the cloud service,3,5,15,Confirm region and reports first (ADR-01); fallback to masked-only data,Security and identity team
+RK-02,Personal data re-identified in analysis,2,5,10,Pseudonymise before load; key kept in source domain; role limits,Data protection lead
+RK-03,Source tables incomplete or change log not enabled,3,4,12,DQ-01 and DQ-08; early extract test,SAP team
+RK-04,Too many false alarms; auditors lose trust,4,3,12,Tune thresholds; track K-03; start with 5 tests,Internal audit lead
+RK-05,Beta or roadmap feature changes or is withdrawn,3,3,9,Keep out of critical path (P-AI2); label on slides,Enterprise architect
+RK-06,AI usage allowance exhausted,3,2,6,Monitor allowance; limit assistant to analysts,Process analyst
+RK-07,Object model too complex to maintain,3,3,9,Start with six objects; document in dictionary,Data engineer
+RK-08,External auditor does not rely on the evidence,2,4,8,Walk through library; side-by-side cycle (TR-002),Chief audit executive
+RK-09,Licensing or capacity cost higher than planned,3,3,9,Size by event volume early; confirm with vendor,Enterprise architect

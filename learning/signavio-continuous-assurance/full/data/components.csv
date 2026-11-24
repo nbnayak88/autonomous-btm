@@ -1,0 +1,20 @@
+ID,Component,Layer,ABB (what),SBB options (examples only),Key responsibilities
+C01,SAP source system,Source,P2P transactional system of record,SAP S/4HANA or SAP ECC (existing; not changed),"Purchasing, goods receipt, invoice and payment documents; change logs"
+C02,Other sources (optional),Source,Non-SAP systems that touch P2P,"Ticketing, supplier portal, e-invoicing gateway","Events that explain a deviation (approval email, ticket, portal change)"
+C03,Secure connectivity,Integration,"Read-only, encrypted path from source to staging",SAP Cloud Connector or an extraction agent; read-only technical user,"Network path, authentication, no write-back"
+C04,"Extraction, masking and staging",Integration,"Extract tables, mask personal data, stage files",Thin custom job (SQL / ABAP-free extract); CSV or Parquet staging,"Table extract, pseudonymise user and vendor identifiers, run manifest, reconciliation counts"
+C05,Process Intelligence: ETL and templated P2P transformations,Data,Load data and transform to an event log,SAP Signavio Process Intelligence ETL connectors with templated P2P transformations,"Scheduled load, transformation, refresh, data-model versions"
+C06,Process Insights (fast start),Application,Prebuilt SAP process analysis,SAP Signavio Process Insights (prebuilt P2P content),Same-day visibility on SAP data; scoping before the tailored build
+C07,Event data model (object-centric),Data,Events linked to many business objects,SAP Signavio Process Intelligence object-based data model (Process Networks),"Links PO, item, goods receipt, invoice, payment and vendor without forcing one case ID"
+C08,Analysis engine,Application,"Discover, compare, measure and investigate","SAP Signavio Process Intelligence (process discovery, variants, KPIs, conformance, investigations)","Process map, variant explorer, conformance rate, KPI views, drill to document"
+C09,Target process and control model,Application,Documented to-be P2P with risks and controls,SAP Signavio Process Manager (BPMN 2.0),Reference model used for conformance; control annotations; versioning
+C10,Process publishing,Presentation,Single place for auditors and process owners,SAP Signavio Process Collaboration Hub,"Read access to models, findings and tasks without modeller licences"
+C11,Deviation workflow and control governance,Application,"Route, approve and track each deviation",SAP Signavio Process Governance,"Review tasks, approvals, lifecycle of processes, risks and controls"
+C12,Conversational analytics and assistant,AI,Ask questions of the process data in plain language,Joule in SAP Signavio; Process Consulting Agent (both described by SAP as available),"Natural-language questions, guided analysis, improvement ideas"
+C13,AI-assisted root-cause analysis,AI,Identify drivers of poor performance or deviation,SAP Signavio AI-assisted root-cause analysis (shown by SAP as beta),Key-driver suggestions to be confirmed by an analyst; not a decision
+C14,Agentic risk mining (future),AI,Agents that monitor and propose actions,SAP Signavio agentic process and risk mining (shown by SAP as roadmap),Roadmap only; not in the critical path of this design
+C15,Remediation automation,Application,Trigger a corrective action or ticket,SAP Build Process Automation; or existing ticketing,"Block payment, request vendor confirmation, raise ticket (with approval)"
+C16,Control test library,Application,Audit tests as configuration,"Conformance rules, filters and KPI definitions in C08 plus models in C09",One versioned library; owner per test; thresholds as parameters
+C17,Identity and access,Security,"SSO, roles, least privilege",Corporate identity provider with SAML single sign-on; role-based access in the suite,"Auditor, analyst, process owner, administrator roles"
+C18,Evidence and reporting,Data,Retained evidence of what was tested and found,Export of findings and snapshots to the document repository or BI tool,"Run manifest, test result, disposition, approver, timestamp"
+C19,Operations and monitoring,Security,Know when a load or test fails,Load monitoring in the suite; enterprise monitoring and notification gateway,"Failed-load alerts, run history, audit trail"
